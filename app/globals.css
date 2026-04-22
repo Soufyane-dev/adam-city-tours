@@ -1,26 +1,1283 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #FDFBF7;
+  --color-cream-dark: #FAF9F6;
+  --color-sand: #F2EBE1;
+  --color-sand-dark: #C9A84C;
+  --color-primary: #1E40AF;
+  --color-primary-light: #3B82F6;
+  --color-primary-dark: #1E3A8A;
+  --color-charcoal: #2C2C2C;
+  --color-charcoal-light: #3D3D3D;
+  --color-midnight: #1A1A2E;
+  --color-warm-white: #FEFCF9;
+  --color-text-primary: #2C2C2C;
+  --color-text-secondary: #6B6B6B;
+  --color-text-muted: #9A9A9A;
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #FDFBF7;
+  --foreground: #2C2C2C;
+}
+
+.dark {
+  --background: #1A1A2E;
+  --foreground: #FEFCF9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Smooth transitions */
+.transition-premium {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Primary gradient text */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #1E40AF, #3B82F6, #1E3A8A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: shimmer 3s infinite;
+}
+
+/* Text shimmer animation */
+@keyframes text-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: -200% 50%;
+  }
+}
+
+.animate-text-shimmer {
+  background-size: 200% auto;
+  animation: text-shimmer 4s linear infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+
+@keyframes trustedByMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.trusted-by-track {
+  animation: trustedByMarquee 42s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trusted-by-track {
+    animation: none !important;
+  }
+}
+
+@keyframes weatherCitiesMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.weather-cities-track {
+  animation: weatherCitiesMarquee 50s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weather-cities-track {
+    animation: none !important;
+  }
+}
+
+@keyframes galleryMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.gallery-track {
+  animation: galleryMarquee 60s linear infinite;
+  will-change: transform;
+}
+
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track {
+    animation: none !important;
+  }
+}
+
+/* Parallax-like overlay */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 46, 0.3) 0%,
+    rgba(26, 26, 46, 0.5) 40%,
+    rgba(26, 26, 46, 0.7) 100%
+  );
+}
+
+/* Simple gold accent line under titles (static, no blur / no motion) */
+.title-with-gold-glow {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  padding-bottom: 0.45rem;
+}
+
+.title-with-gold-glow::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(88%, 11rem);
+  height: 2px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  border-radius: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 168, 76, 0.25) 18%,
+    #c9a84c 50%,
+    rgba(201, 168, 76, 0.25) 82%,
+    transparent
+  );
+}
+
+.title-with-gold-glow--wide::after {
+  width: min(90%, 17rem);
+}
+
+.title-with-gold-glow--left::after {
+  left: 0;
+  transform: none;
+  width: clamp(2.75rem, 36%, 11rem);
+}
+
+.title-with-gold-glow--on-dark::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(232, 197, 71, 0.35) 22%,
+    #e8c547 50%,
+    rgba(232, 197, 71, 0.35) 78%,
+    transparent
+  );
+}
+
+/* About hero — very slow background drift (honours reduced motion) */
+@keyframes about-hero-drift {
+  0% {
+    transform: scale(1.05) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate(-1.25%, -0.5%);
+  }
+}
+
+.about-hero-drift {
+  transform: scale(1.05);
+  animation: about-hero-drift 48s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-hero-drift {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Luxury pill button (section nav, chips, filters…)
+   Layers: gradient fill slide-in → shine sweep → lift + gold glow.
+   ────────────────────────────────────────────────────────────── */
+.luxury-pill {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease;
+}
+
+/* Gold fill that slides in from the left on hover/active */
+.luxury-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    #b08f34 0%,
+    #e8c547 45%,
+    #c9a84c 70%,
+    #b08f34 100%
+  );
+  opacity: 0;
+  transform: translateX(-12%);
+  transition:
+    opacity 0.5s ease,
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Diagonal shine that sweeps across on hover */
+.luxury-pill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.luxury-pill:hover,
+.luxury-pill:focus-visible,
+.luxury-pill.is-active {
+  color: #1a1a2e;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 32px -12px rgba(201, 168, 76, 0.55),
+    0 2px 8px -2px rgba(201, 168, 76, 0.3);
+}
+
+.luxury-pill:hover::before,
+.luxury-pill:focus-visible::before,
+.luxury-pill.is-active::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.luxury-pill:hover::after,
+.luxury-pill:focus-visible::after {
+  transform: translateX(130%);
+}
+
+/* Dark-mode tweak — keep text readable on gold fill */
+.dark .luxury-pill:hover,
+.dark .luxury-pill:focus-visible,
+.dark .luxury-pill.is-active {
+  color: #0d0d16;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-pill,
+  .luxury-pill::before,
+  .luxury-pill::after {
+    transition: none !important;
+  }
+  .luxury-pill:hover,
+  .luxury-pill:focus-visible,
+  .luxury-pill.is-active {
+    transform: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Luxury pill — blue (Chefchaouen) variant
+   Same layered animation as .luxury-pill, recolored for our
+   Morocco-blue accent (#2E79C7). Works for two flavours:
+     • .luxury-pill-blue              → ghost / outlined (fills blue on hover)
+     • .luxury-pill-blue.is-filled    → already filled blue (shine + lift + glow only)
+   ────────────────────────────────────────────────────────────── */
+.luxury-pill-blue {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease;
+}
+
+/* Blue fill that slides in from the left on hover (ghost variant) */
+.luxury-pill-blue::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    #2261A1 0%,
+    #3a8fdd 45%,
+    #2E79C7 70%,
+    #2261A1 100%
+  );
+  opacity: 0;
+  transform: translateX(-12%);
+  transition:
+    opacity 0.5s ease,
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Diagonal white shine that sweeps across on hover */
+.luxury-pill-blue::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.luxury-pill-blue:hover,
+.luxury-pill-blue:focus-visible,
+.luxury-pill-blue.is-active {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 32px -12px rgba(46, 121, 199, 0.55),
+    0 2px 8px -2px rgba(46, 121, 199, 0.3);
+}
+
+/* Ghost variant — text flips to white, blue fill reveals */
+.luxury-pill-blue:not(.is-filled):hover,
+.luxury-pill-blue:not(.is-filled):focus-visible,
+.luxury-pill-blue:not(.is-filled).is-active {
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.luxury-pill-blue:not(.is-filled):hover::before,
+.luxury-pill-blue:not(.is-filled):focus-visible::before,
+.luxury-pill-blue:not(.is-filled).is-active::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.luxury-pill-blue:hover::after,
+.luxury-pill-blue:focus-visible::after {
+  transform: translateX(130%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-pill-blue,
+  .luxury-pill-blue::before,
+  .luxury-pill-blue::after {
+    transition: none !important;
+  }
+  .luxury-pill-blue:hover,
+  .luxury-pill-blue:focus-visible,
+  .luxury-pill-blue.is-active {
+    transform: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Luxury CTA buttons — primary (filled) & ghost (outlined).
+   Layered look: gradient border frame, shine sweep, lift, glow,
+   plus an icon-arrow that slides on hover.
+   ────────────────────────────────────────────────────────────── */
+.luxury-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 9999px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1rem 2.25rem;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    background-color 0.4s ease;
+}
+
+/* Diagonal shine sweep — shared by both variants */
+.luxury-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 62%
+  );
+  transform: translateX(-130%);
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.luxury-cta:hover::after,
+.luxury-cta:focus-visible::after {
+  transform: translateX(130%);
+}
+
+.luxury-cta__label,
+.luxury-cta__icon {
+  position: relative;
+  z-index: 2;
+}
+
+.luxury-cta__icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.luxury-cta:hover .luxury-cta__icon,
+.luxury-cta:focus-visible .luxury-cta__icon {
+  transform: translateX(4px);
+}
+
+/* ── Primary: dark base, gold gradient frame, gold text ─────── */
+.luxury-cta--primary {
+  background: linear-gradient(140deg, #0d1b2a 0%, #152a45 60%, #0d1b2a 100%);
+  color: #e8c547;
+  box-shadow:
+    0 12px 28px -14px rgba(13, 27, 42, 0.6),
+    0 4px 10px -4px rgba(201, 168, 76, 0.25),
+    inset 0 0 0 1px rgba(201, 168, 76, 0.35);
+}
+
+/* Animated gold gradient frame */
+.luxury-cta--primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    120deg,
+    #b08f34 0%,
+    #e8c547 30%,
+    #c9a84c 55%,
+    #e8c547 80%,
+    #b08f34 100%
+  );
+  background-size: 220% 220%;
+  background-position: 0% 50%;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+          mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  transition: background-position 1s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.luxury-cta--primary:hover,
+.luxury-cta--primary:focus-visible {
+  transform: translateY(-3px);
+  color: #f5d76e;
+  box-shadow:
+    0 22px 44px -16px rgba(13, 27, 42, 0.7),
+    0 8px 18px -6px rgba(201, 168, 76, 0.45),
+    inset 0 0 0 1px rgba(232, 197, 71, 0.6);
+}
+
+.luxury-cta--primary:hover::before,
+.luxury-cta--primary:focus-visible::before {
+  background-position: 100% 50%;
+}
+
+.dark .luxury-cta--primary {
+  background: linear-gradient(140deg, #c9a84c 0%, #e8c547 50%, #c9a84c 100%);
+  color: #0d1b2a;
+  box-shadow:
+    0 12px 30px -14px rgba(201, 168, 76, 0.55),
+    inset 0 0 0 1px rgba(13, 27, 42, 0.18);
+}
+
+.dark .luxury-cta--primary:hover,
+.dark .luxury-cta--primary:focus-visible {
+  color: #0d1b2a;
+  box-shadow:
+    0 22px 48px -16px rgba(201, 168, 76, 0.7),
+    inset 0 0 0 1px rgba(13, 27, 42, 0.25);
+}
+
+/* ── Ghost: transparent base, gold border slides in on hover ── */
+.luxury-cta--ghost {
+  background: rgba(255, 255, 255, 0.5);
+  color: #334155;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+.luxury-cta--ghost::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    rgba(201, 168, 76, 0.18) 0%,
+    rgba(232, 197, 71, 0.28) 50%,
+    rgba(201, 168, 76, 0.18) 100%
+  );
+  opacity: 0;
+  transform: translateX(-12%);
+  transition:
+    opacity 0.5s ease,
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.luxury-cta--ghost:hover,
+.luxury-cta--ghost:focus-visible {
+  transform: translateY(-3px);
+  color: #0d1b2a;
+  border-color: #c9a84c;
+  box-shadow:
+    0 18px 36px -16px rgba(201, 168, 76, 0.5),
+    0 4px 12px -4px rgba(201, 168, 76, 0.25);
+}
+
+.luxury-cta--ghost:hover::before,
+.luxury-cta--ghost:focus-visible::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dark .luxury-cta--ghost {
+  background: rgba(255, 255, 255, 0.04);
+  color: #e2e8f0;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark .luxury-cta--ghost:hover,
+.dark .luxury-cta--ghost:focus-visible {
+  color: #f5d76e;
+  border-color: #c9a84c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-cta,
+  .luxury-cta::before,
+  .luxury-cta::after,
+  .luxury-cta__icon {
+    transition: none !important;
+  }
+  .luxury-cta:hover,
+  .luxury-cta:focus-visible {
+    transform: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Luxury drop-cap — first letter rendered as an editorial
+   crimson initial (a nod to Marrakech, the "Red City").
+   ────────────────────────────────────────────────────────────── */
+.luxury-dropcap::first-letter {
+  float: left;
+  margin-right: 0.75rem;
+  padding-top: 0.25rem;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 0.85;
+  /* Rich crimson gradient — warm "Marrakech red" → deep burgundy */
+  background: linear-gradient(155deg, #c8102e 0%, #a8323a 45%, #7a1622 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 6px 18px rgba(168, 50, 58, 0.25);
+}
+
+.dark .luxury-dropcap::first-letter {
+  background: linear-gradient(155deg, #e23c4a 0%, #c8102e 45%, #8b1f2e 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  text-shadow: 0 6px 22px rgba(226, 60, 74, 0.3);
+}
+
+/* Star rating */
+.star-filled {
+  color: #1E40AF;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Luxury price — same shimmer treatment as the "Live weather" title.
+   Dark navy → gold → dark navy gradient sweeping across the number
+   via the shared `text-shimmer` keyframe. The currency glyph is
+   slightly smaller and lifted so the figure still feels editorial.
+   ────────────────────────────────────────────────────────────── */
+.luxury-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.1em;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    #0f172a 0%,
+    #C9A84C 50%,
+    #0f172a 100%
+  );
+  background-size: 200% auto;
+  background-position: 0% 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(201, 168, 76, 0.18));
+  animation: text-shimmer 4s linear infinite;
+}
+.dark .luxury-price {
+  background-image: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #C9A84C 50%,
+    #ffffff 100%
+  );
+  filter: drop-shadow(0 0 18px rgba(201, 168, 76, 0.28));
+}
+.luxury-price__currency {
+  font-size: 0.72em;
+  font-weight: 800;
+  margin-right: 0.05em;
+  letter-spacing: 0.01em;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-price {
+    animation: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Luxury WhatsApp CTA — brand green + shine sweep + lift + glow
+   Usage: <a class="luxury-whatsapp"> … </a>
+   ────────────────────────────────────────────────────────────── */
+.luxury-whatsapp {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(
+    110deg,
+    #128C7E 0%,
+    #25D366 55%,
+    #1EBE5B 100%
+  );
+  color: #ffffff;
+  font-family: var(--font-inter), ui-sans-serif, system-ui;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  border-radius: 9999px;
+  box-shadow:
+    0 14px 32px -12px rgba(37, 211, 102, 0.55),
+    0 2px 8px -2px rgba(18, 140, 126, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease,
+    filter 0.4s ease;
+}
+.luxury-whatsapp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.luxury-whatsapp::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    #0f7a6e 0%,
+    #128C7E 55%,
+    #0d6a5e 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.luxury-whatsapp:hover,
+.luxury-whatsapp:focus-visible {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+  box-shadow:
+    0 22px 46px -14px rgba(37, 211, 102, 0.7),
+    0 4px 14px -3px rgba(18, 140, 126, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.luxury-whatsapp:hover::before,
+.luxury-whatsapp:focus-visible::before {
+  transform: translateX(130%);
+}
+.luxury-whatsapp:focus-visible {
+  outline: 2px solid #25D366;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-whatsapp,
+  .luxury-whatsapp::before {
+    transition: none !important;
+  }
+  .luxury-whatsapp:hover,
+  .luxury-whatsapp:focus-visible {
+    transform: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Luxury day-photo reveal — for the Day-by-Day itinerary cards.
+   On open: the photo unveils with a Ken-Burns slow zoom, a gold
+   hairline framing, a diagonal shine sweep, and a soft fade-up.
+   ────────────────────────────────────────────────────────────── */
+.luxury-day-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  isolation: isolate;
+  animation: luxury-day-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  box-shadow:
+    0 18px 48px -20px rgba(20, 53, 88, 0.35),
+    0 2px 10px -2px rgba(201, 168, 76, 0.18);
+}
+.luxury-day-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  pointer-events: none;
+}
+.luxury-day-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.55) 48%,
+    rgba(255, 255, 255, 0.15) 54%,
+    transparent 70%
+  );
+  transform: translateX(-140%);
+  animation: luxury-day-shine 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.luxury-day-photo__img {
+  transform: scale(1.05);
+  animation: luxury-day-kenburns 12s ease-in-out 0.1s infinite alternate;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.luxury-day-photo:hover .luxury-day-photo__img {
+  transform: scale(1.09);
+}
+.luxury-day-photo__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to top, rgba(13, 27, 42, 0.55) 0%, transparent 55%),
+    radial-gradient(
+      120% 80% at 50% 0%,
+      rgba(201, 168, 76, 0.12) 0%,
+      transparent 60%
+    );
+  pointer-events: none;
+}
+.luxury-day-photo__badge {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border: 1px solid rgba(201, 168, 76, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  font-family: var(--font-inter), ui-sans-serif, system-ui;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.luxury-day-photo__badge::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #C9A84C;
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.9);
+}
+
+@keyframes luxury-day-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes luxury-day-shine {
+  0% {
+    transform: translateX(-140%);
+  }
+  100% {
+    transform: translateX(140%);
+  }
+}
+@keyframes luxury-day-kenburns {
+  0% {
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.1) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-day-photo,
+  .luxury-day-photo::after,
+  .luxury-day-photo__img {
+    animation: none !important;
+  }
+  .luxury-day-photo__img {
+    transform: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Tour detail hero — gentle Ken-Burns drift for a cinematic,
+   luxurious entrance. Very slow, very subtle, always respectful
+   of prefers-reduced-motion.
+   ────────────────────────────────────────────────────────────── */
+.tour-hero-kenburns {
+  will-change: transform;
+  animation: tour-hero-drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes tour-hero-drift {
+  0% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate3d(-1.2%, -0.8%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-hero-kenburns {
+    animation: none !important;
+    transform: scale(1.02) !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Home weather marquee — luxe but neutral. A gentle float on the
+   icon orb, a subtle shine sweep on hover, and a soft gold ring.
+   Designed to stay calm when many pills are visible at once.
+   ────────────────────────────────────────────────────────────── */
+.luxury-weather-card__orb {
+  animation: luxury-weather-float 5.5s ease-in-out infinite;
+}
+
+.luxury-weather-card__shine {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  mix-blend-mode: overlay;
+}
+.dark .luxury-weather-card__shine {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(201, 168, 76, 0.28) 50%,
+    transparent 100%
+  );
+}
+.luxury-weather-card:hover .luxury-weather-card__shine,
+.luxury-weather-card:focus-visible .luxury-weather-card__shine {
+  transform: translateX(360%);
+}
+
+@keyframes luxury-weather-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-weather-card__orb {
+    animation: none !important;
+  }
+  .luxury-weather-card__shine {
+    transition: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Footer social icons — brand-colored at rest, lit up in the
+   brand gradient on hover with a soft brand-tinted glow.
+   ────────────────────────────────────────────────────────────── */
+.footer-social:hover,
+.footer-social:focus-visible {
+  border-color: transparent;
+  box-shadow: 0 14px 32px -14px var(--social-glow, rgba(201, 168, 76, 0.5));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-social {
+    transition: none !important;
+  }
+  .footer-social:hover,
+  .footer-social:focus-visible {
+    transform: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   About page — stat cells: luxe icon orbs that float gently,
+   with an editorial shine sweep on hover.
+   ────────────────────────────────────────────────────────────── */
+.luxury-stat-orb {
+  animation: luxury-stat-float 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.luxury-stat-shine {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  mix-blend-mode: overlay;
+}
+.dark .luxury-stat-shine {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(201, 168, 76, 0.28) 50%,
+    transparent 100%
+  );
+}
+.luxury-stat-cell:hover .luxury-stat-shine {
+  transform: translateX(360%);
+}
+
+@keyframes luxury-stat-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-stat-orb {
+    animation: none !important;
+  }
+  .luxury-stat-shine {
+    transition: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Core values — luxury cards. Editorial shine sweep animating
+   continuously across the card from left to right.
+   ────────────────────────────────────────────────────────────── */
+@keyframes luxury-value-shine-sweep {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+  }
+  60%,
+  100% {
+    transform: translateX(420%) skewX(-12deg);
+  }
+}
+
+.luxury-value-shine {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(201, 168, 76, 0.35) 45%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(201, 168, 76, 0.35) 55%,
+    transparent 100%
+  );
+  mix-blend-mode: overlay;
+  animation: luxury-value-shine-sweep 5.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation-delay: var(--shine-delay, 0s);
+}
+.dark .luxury-value-shine {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(201, 168, 76, 0.22) 45%,
+    rgba(232, 197, 71, 0.4) 50%,
+    rgba(201, 168, 76, 0.22) 55%,
+    transparent 100%
+  );
+}
+.luxury-value-card:hover .luxury-value-shine {
+  animation-duration: 1.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-value-shine {
+    animation: none !important;
+  }
+  .luxury-value-card {
+    transition: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Our Fleet — luxury vehicle cards. Editorial shine sweep across the
+   card on hover and a tiny silhouette drift so the illustration feels
+   alive without distracting from the content.
+   ────────────────────────────────────────────────────────────── */
+.fleet-card__shine {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(201, 168, 76, 0.18) 45%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(201, 168, 76, 0.18) 55%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  mix-blend-mode: overlay;
+}
+.dark .fleet-card__shine {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(201, 168, 76, 0.28) 50%,
+    transparent 100%
+  );
+}
+.fleet-card:hover .fleet-card__shine,
+.fleet-card:focus-visible .fleet-card__shine {
+  transform: translateX(260%);
+}
+
+.fleet-card__silhouette {
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.fleet-card:hover .fleet-card__silhouette {
+  transform: translateX(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fleet-card__shine {
+    transition: none !important;
+  }
+  .fleet-card__silhouette {
+    transition: none !important;
+  }
+  .fleet-card:hover {
+    transform: none !important;
+  }
+}
+
+/* Hide Next.js dev overlay indicators */
+#next-route-announcer,
+[data-nextjs-toast],
+[data-nextjs-toast-wrapper],
+[data-nextjs-dialog-overlay],
+[data-nextjs-dialog] {
+  display: none !important;
 }
