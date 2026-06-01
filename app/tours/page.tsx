@@ -4,10 +4,16 @@ import TourCard from "@/components/TourCard";
 import { filterToursByDeparture, tours } from "@/lib/tours";
 
 export const metadata: Metadata = {
-  title: "All Tours",
+  title: "Morocco Tours — All Itineraries",
   description:
     "Browse our complete collection of Morocco tours. Desert adventures, imperial city tours, mountain treks, coastal escapes and more — all with expert local guides.",
   alternates: { canonical: "/tours" },
+  openGraph: {
+    title: "Morocco Tours — Adam City Tours",
+    description: "Desert adventures, imperial cities, Atlas treks and coastal escapes — all private tours with expert local guides.",
+    url: "/tours",
+    type: "website",
+  },
 };
 
 const FROM_LABELS: Record<string, string> = {
@@ -30,7 +36,7 @@ export default async function ToursPage({ searchParams }: Props) {
 
   return (
     <>
-      <section className="bg-gradient-to-b from-[#F0E8DA] to-[#FAF6F0] px-6 pb-16 pt-36 text-center dark:from-[#1A1A2E] dark:to-[var(--background)]">
+      <section className="bg-gradient-to-b from-[#F0E8DA] to-[#FAF6F0] px-6 pb-16 pt-36 text-center dark:from-[#141C2C] dark:to-[var(--background)]">
         <span className="mb-3 block text-xs font-semibold uppercase tracking-[0.3em] text-[#FACC15]">
           Discover Morocco
         </span>
@@ -61,7 +67,7 @@ export default async function ToursPage({ searchParams }: Props) {
         {filtered.length === 0 ? (
           <p className="rounded-2xl border border-slate-200 bg-white/80 py-12 text-center text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
             No tours match this filter yet.{" "}
-            <Link href="/tours" className="font-semibold text-[#2E79C7] underline-offset-2 hover:underline">
+            <Link href="/tours" className="font-semibold text-[#0F3568] underline-offset-2 hover:underline">
               View all tours
             </Link>
             .

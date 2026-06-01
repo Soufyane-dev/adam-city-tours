@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import BrandWordmark from "@/components/BrandWordmark";
 
 type SocialLink = {
   label: string;
@@ -16,7 +16,7 @@ type SocialLink = {
 const socialLinks: SocialLink[] = [
   {
     label: "Facebook",
-    href: "https://facebook.com",
+    href: "https://www.facebook.com/adamcitytours",
     hoverGradient: "linear-gradient(135deg, #1877F2 0%, #0a4fb5 100%)",
     glow: "rgba(24,119,242,0.55)",
     iconColor: "#1877F2",
@@ -28,7 +28,7 @@ const socialLinks: SocialLink[] = [
   },
   {
     label: "Instagram",
-    href: "https://instagram.com/mortoursx",
+    href: "https://www.instagram.com/adamcitytours/",
     hoverGradient:
       "linear-gradient(135deg, #f58529 0%, #dd2a7b 40%, #8134af 75%, #515bd4 100%)",
     glow: "rgba(221,42,123,0.55)",
@@ -59,24 +59,23 @@ const socialLinks: SocialLink[] = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2E79C7] text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8">
+    <footer className="relative border-t border-[#C9A84C]/45 bg-[#050b14] text-white shadow-[inset_0_1px_0_rgba(201,168,76,0.12)]">
+      {/* Subtle depth below brand navy — contrasts with logo & gold type */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-100 bg-[radial-gradient(ellipse_140%_80%_at_50%_-20%,rgba(15,53,104,0.34),transparent_52%)]"
+        aria-hidden
+      />
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1.1fr_1fr] gap-8 items-start">
 
-          {/* Column 1 — Logo (same as Navbar) */}
+          {/* Column 1 — Brand */}
           <div className="flex flex-col items-start gap-3">
-            <Link href="/" className="flex items-center gap-2">
-              <Image
-                src="/logo.png"
-                alt="Mortours"
-                width={52}
-                height={52}
-                className="rounded-full object-cover"
-              />
-              <span className="font-[var(--font-playfair)] text-2xl font-bold tracking-wide leading-none">
-                <span className="text-white">Mor</span>
-                <span className="text-[#C9A84C]">tours</span>
-              </span>
+            <Link
+              href="/"
+              className="inline-flex bg-transparent p-0 outline-none ring-0 transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C]"
+              aria-label="Adam City Tours — Home"
+            >
+              <BrandWordmark variant="footer" />
             </Link>
 
             {/* Social icons — luxury circles, brand-colored icons */}

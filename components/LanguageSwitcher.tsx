@@ -37,10 +37,19 @@ export default function LanguageSwitcher({ scrolled }: { scrolled?: boolean }) {
   );
   const selectedLang = languages.find((l) => l.code === selectedCode) ?? languages[0];
 
-  // Load Google Translate Script
+  // Load Google Translate (cookie-based). Mount target must stay off-DOM-flow — otherwise
+  // Google’s <select> can render as a visible gray box above the navbar logo.
   useEffect(() => {
-    // Prevent loading multiple times
     if (document.getElementById("google-translate-script")) return;
+
+    let mount = document.getElementById("google_translate_element");
+    if (!mount) {
+      mount = document.createElement("div");
+      mount.id = "google_translate_element";
+      mount.setAttribute("aria-hidden", "true");
+      mount.className = "google-translate-offscreen";
+      document.body.appendChild(mount);
+    }
 
     window.googleTranslateElementInit = () => {
       const Ctor = window.google?.translate?.TranslateElement;
@@ -88,11 +97,11 @@ export default function LanguageSwitcher({ scrolled }: { scrolled?: boolean }) {
 
   return (
     <div className="relative" ref={dropdownRef}>
-      {/* Hidden container for the native Google Translate element */}
-      <div id="google_translate_element" className="hidden"></div>
-      
-      {/* Global Style to hide Google Translate Bar */}
-      <style dangerouslySetInnerHTML={{__html: `
+      {/* google_translate_element is appended to document.body in useEffect (off-screen) */}
+
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         .skiptranslate iframe,
         .VIpgJd-ZVi9od-ORHb-OEVmcd,
         .goog-te-banner-frame {
@@ -101,7 +110,9 @@ export default function LanguageSwitcher({ scrolled }: { scrolled?: boolean }) {
         body {
           top: 0px !important;
         }
-      `}} />
+      `,
+        }}
+      />
 
       {/* Language Toggle Button */}
       <button
@@ -125,14 +136,14 @@ export default function LanguageSwitcher({ scrolled }: { scrolled?: boolean }) {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-52 bg-white dark:bg-[#1A1A2E] rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] dark:shadow-black/50 border border-neutral-100 dark:border-neutral-800 py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="absolute right-0 top-full mt-2 w-52 bg-white dark:bg-[#141C2C] rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] dark:shadow-black/50 border border-neutral-100 dark:border-neutral-800 py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => handleLanguageChange(lang)}
-              className={`w-full text-left px-5 py-2.5 text-[17px] flex items-center justify-between hover:bg-neutral-50 dark:hover:bg-white/5 hover:text-[#2E79C7] dark:hover:text-[#2E79C7] transition-colors ${
+              className={`w-full text-left px-5 py-2.5 text-[17px] flex items-center justify-between hover:bg-neutral-50 dark:hover:bg-white/5 hover:text-[#0F3568] dark:hover:text-[#0F3568] transition-colors ${
                 selectedLang.code === lang.code
-                  ? "text-[#2E79C7] font-semibold bg-neutral-50 dark:bg-white/5"
+                  ? "text-[#0F3568] font-semibold bg-neutral-50 dark:bg-white/5"
                   : "text-[#111] dark:text-neutral-200 font-medium"
               }`}
             >

@@ -153,8 +153,8 @@
 }
 
 .cardSocial a:hover {
-  background-color: #2E79C7;
-  border-color: #2E79C7;
+  background-color: #0F3568;
+  border-color: #0F3568;
 }
 
 .cardSocial a:hover svg {
@@ -301,7 +301,7 @@
 .contactMe {
   border: 0;
   outline: none;
-  background: #2E79C7;
+  background: #0F3568;
   color: #fff;
   padding: 15px;
   width: 100%;
@@ -315,7 +315,7 @@
 }
 
 .contactMe:hover {
-  background: #2261A1;
+  background: #082A52;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(46, 121, 199, 0.3);
+  box-shadow: 0 10px 20px rgba(15,53,104, 0.3);
 }

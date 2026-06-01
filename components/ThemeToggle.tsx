@@ -5,7 +5,7 @@ import { useSyncExternalStore } from "react";
 
 const emptySubscribe = () => () => {};
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ overlay }: { overlay?: boolean }) {
   const { theme, setTheme } = useTheme();
   const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
@@ -13,12 +13,16 @@ export default function ThemeToggle() {
     return <div className="w-9 h-9" />; // Placeholder to avoid layout shift
   }
 
+  const cls = overlay
+    ? "rounded-full bg-white/[0.16] p-2 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] backdrop-blur-sm hover:bg-white/28 dark:bg-white/[0.12]"
+    : "rounded-full bg-black/5 p-2 text-black/70 hover:bg-[#0F3568]/15 hover:text-[#0F3568] dark:bg-white/10 dark:text-white/70 dark:hover:text-[#0F3568]";
+
   return (
     <button
       id="theme-toggle-btn"
       aria-label="Toggle Dark Mode"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-full bg-black/5 dark:bg-white/10 text-black/70 dark:text-white/70 hover:bg-[#2E79C7]/15 hover:text-[#2E79C7] dark:hover:text-[#2E79C7] transition-all duration-300"
+      className={`transition-all duration-300 ${cls}`}
     >
       {theme === "dark" ? (
         // Sun icon

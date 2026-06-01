@@ -37,7 +37,7 @@ export default function TripAdvisorWidget() {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.tripadvisor.com/Attraction_Review-g293734-d32975170-Reviews-Mortours_Adventure-Marrakech_Marrakech_Safi.html"
+              href="https://www.tripadvisor.com/Attraction_Review-g293734-d20363595-Reviews-Adamcitytours-Marrakech_Marrakech_Safi.html"
             >
               <Image
                 src={TRIPADVISOR_WORDMARK}

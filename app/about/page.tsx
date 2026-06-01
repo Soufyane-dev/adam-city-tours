@@ -5,18 +5,24 @@ import { ArrowRight } from "lucide-react";
 import AboutAnimatedCounters from "@/components/about/AboutAnimatedCounters";
 
 export const metadata: Metadata = {
-  title: "About Us — Mortours",
+  title: "About Us — Adam City Tours",
   description:
-    "Learn about Mortours, our vision, values, and how we craft premium Morocco travel experiences.",
+    "Learn about Adam City Tours, our vision, values, and how we craft premium Morocco travel experiences.",
   alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Adam City Tours",
+    description: "Our story, values and team behind Morocco's premium private tours.",
+    url: "/about",
+    type: "website",
+  },
 };
 
 const values = [
   {
     title: "Authenticity",
     text: "Every itinerary reveals the real Morocco — medinas, Berber villages, and living traditions far beyond tourist trails.",
-    image: "/images/authentic-tea-guests-berber-countryside.png",
-    imageAlt: "Mortours guests sharing Berber tea with their guide in the Moroccan countryside",
+    image: "/images/authentic-airport-clients.png",
+    imageAlt: "Adam City Tours guide welcoming clients at Marrakech Menara Airport",
     icon: (
       <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.25}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" />
@@ -26,8 +32,8 @@ const values = [
   {
     title: "Luxury at Heart",
     text: "Curated riads, private transfers, and bespoke glamping — comfort and elegance at every turn of your journey.",
-    image: "/images/luxury-riad-lounge-guests-palm-view.png",
-    imageAlt: "Guests relaxing in a traditional Moroccan riad lounge with palm oasis view",
+    image: "/images/luxury-clients-airport.png",
+    imageAlt: "Adam City Tours clients arriving at Marrakech airport ready for their luxury tour",
     icon: (
       <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.25}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
@@ -37,8 +43,8 @@ const values = [
   {
     title: "Human First",
     text: "We design around you — your pace, your style, your story. Each guest is a friend, not a booking number.",
-    image: "/images/human-first-guests-guide-atlas-road.png",
-    imageAlt: "Two guests and their Mortours guide smiling together on an Atlas mountain road",
+    image: "/images/human-first-clients-dinner.png",
+    imageAlt: "Adam City Tours clients enjoying a convivial dinner together in Marrakech",
     icon: (
       <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.25}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -48,8 +54,8 @@ const values = [
   {
     title: "Responsible Travel",
     text: "We invest in local communities and eco-conscious travel so Morocco's magic endures for future generations.",
-    image: "/images/responsible-travel-dades-gorges-guests.png",
-    imageAlt: "Mortours guests with their guide at Dades Gorges, Morocco",
+    image: "/images/responsible-travel-van-clients.png",
+    imageAlt: "Adam City Tours clients enjoying a group transfer in the tour van across Morocco",
     icon: (
       <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.25}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1.5m6.364 1.136l-1.06 1.06M21 12h-1.5m-1.136 6.364l-1.06-1.06M12 19.5V21m-6.364-1.136l1.06-1.06M3 12h1.5m1.136-6.364l1.06 1.06M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z" />
@@ -59,7 +65,7 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2016", title: "The Spark", text: "Mortours is born in Marrakech — a passion project turned professional, built to share Morocco's soul." },
+  { year: "2016", title: "The Spark", text: "Adam City Tours is born in Marrakech — a passion project turned professional, built to share Morocco's soul." },
   { year: "2018", title: "Awarded Excellence", text: "Tripadvisor Certificate of Excellence. Our network grows to 12+ destinations and 300+ itineraries." },
   { year: "2021", title: "Luxury Collection", text: "We launch our premium tier: desert glamping, private camel treks, rooftop dinners under the stars." },
   { year: "2024", title: "Global Reach", text: "2,000+ travelers from 40+ countries. A 4.9-star average and recognition across top travel platforms." },
@@ -74,11 +80,12 @@ export default function AboutPage() {
       {/* Hero — clean full-bleed photo, consistent with the rest of the site */}
       <section className="relative h-[88vh] min-h-[640px] max-h-[920px] overflow-hidden">
         <Image
-          src="/images/about-hero-group-dades.jpg"
-          alt="Mortours travellers with their local guide in the Dades Valley"
+          src="/images/about-hero-family.png"
+          alt="Adam City Tours — The family behind your journey"
           fill
           priority
           quality={100}
+          unoptimized
           className="about-hero-drift object-cover object-[center_45%]"
           sizes="100vw"
         />

@@ -64,7 +64,7 @@ function score(q: string, r: Result): number {
  * Collapsed state = gold-ringed icon. Open state = elegant input with a
  * dropdown of matching tours & destinations. ESC / outside click close it.
  */
-export default function NavSearch() {
+export default function NavSearch({ overlay }: { overlay?: boolean }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -120,7 +120,11 @@ export default function NavSearch() {
         aria-label={open ? "Close search" : "Search tours and destinations"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="group relative flex h-10 w-10 items-center justify-center rounded-full border border-[#C9A84C]/30 bg-white/70 text-[#1a2b48] shadow-[0_6px_20px_-10px_rgba(201,168,76,0.35)] backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-[#C9A84C]/70 hover:shadow-[0_12px_28px_-12px_rgba(201,168,76,0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C] dark:border-white/15 dark:bg-white/5 dark:text-white"
+        className={
+          overlay
+            ? "group relative flex h-10 w-10 items-center justify-center rounded-full border border-white/45 bg-white/[0.14] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[#FACC15]/70 hover:bg-white/22 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70 dark:border-white/35 dark:bg-white/[0.1] dark:hover:bg-white/18"
+            : "group relative flex h-10 w-10 items-center justify-center rounded-full border border-[#C9A84C]/30 bg-white/70 text-[#1a2b48] shadow-[0_6px_20px_-10px_rgba(201,168,76,0.35)] backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-[#C9A84C]/70 hover:shadow-[0_12px_28px_-12px_rgba(201,168,76,0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C] dark:border-white/15 dark:bg-white/5 dark:text-white"
+        }
       >
         <span
           aria-hidden
@@ -146,7 +150,7 @@ export default function NavSearch() {
 
       {/* Dropdown panel — fixed sheet on mobile, anchored flyout on desktop */}
       <div
-        className={`fixed inset-x-3 top-[88px] z-50 origin-top transition-all duration-300 lg:absolute lg:inset-x-auto lg:right-0 lg:top-[calc(100%+0.75rem)] lg:w-[22rem] lg:origin-top-right ${
+        className={`fixed inset-x-3 top-[calc(4.75rem+0.75rem)] z-50 origin-top transition-all duration-300 lg:absolute lg:inset-x-auto lg:right-0 lg:top-[calc(100%+0.75rem)] lg:w-[22rem] lg:origin-top-right ${
           open
             ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
             : "pointer-events-none -translate-y-2 scale-[0.98] opacity-0"
@@ -230,7 +234,7 @@ export default function NavSearch() {
 
           {/* Footer hint */}
           <div className="flex items-center justify-between border-t border-[#C9A84C]/15 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400 dark:border-white/10 dark:text-white/40">
-            <span>Mortours · Curated journeys</span>
+            <span>Adam City Tours · Curated journeys</span>
             <span className="hidden sm:inline">
               <kbd className="rounded border border-slate-300 bg-white px-1.5 py-0.5 font-mono text-[10px] text-slate-600 dark:border-white/15 dark:bg-white/5 dark:text-white/60">
                 Esc

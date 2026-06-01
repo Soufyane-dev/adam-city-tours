@@ -15,7 +15,7 @@ const galleryData = [
     id: "merzouga",
     title: "MERZOUGA",
     subtitle: "Sahara Desert - Morocco",
-    imageUrl: "/images/hero-desert.png",
+    imageUrl: "/images/dest-merzouga.png",
   },
   {
     id: "fes",

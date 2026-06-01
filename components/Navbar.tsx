@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useLayoutEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ThemeToggle from "@/components/ThemeToggle";
 import NavSearch from "@/components/NavSearch";
+import BrandWordmark from "@/components/BrandWordmark";
 import { destinations } from "@/lib/destinations";
 
 /** A single tour suggestion inside a city flyout. */
@@ -73,6 +73,9 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+/** After scrolling past hero top on "/", the pill navbar (border / bg / shadow) appears. */
+const HOME_NAV_REVEAL_SCROLL_Y = 40;
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   /** Which mobile accordion section is open: null | "Trips" | "Tours". */
@@ -80,6 +83,29 @@ export default function Navbar() {
   /** Which nested Tours-city accordion is open on mobile (id of the group). */
   const [mobileToursCity, setMobileToursCity] = useState<string | null>(null);
   const pathname = usePathname() ?? "/";
+  const [navChromeVisible, setNavChromeVisible] = useState(pathname !== "/");
+
+  /** Home first screen: floating links/logo only — no navbar “card” until scroll / menu / other page. */
+  const heroNavMinimal =
+    pathname === "/" && !navChromeVisible;
+
+  useLayoutEffect(() => {
+    if (pathname !== "/") {
+      setNavChromeVisible(true);
+      return;
+    }
+    const sync = () =>
+      setNavChromeVisible(
+        window.scrollY > HOME_NAV_REVEAL_SCROLL_Y || menuOpen
+      );
+    sync();
+    window.addEventListener("scroll", sync, { passive: true });
+    window.addEventListener("resize", sync);
+    return () => {
+      window.removeEventListener("scroll", sync);
+      window.removeEventListener("resize", sync);
+    };
+  }, [pathname, menuOpen]);
 
   /** Whether a given nav entry corresponds to the currently-active route. */
   const isActive = (link: { href: string; label: string }) => {
@@ -91,49 +117,58 @@ export default function Navbar() {
     return pathname.startsWith(path);
   };
 
+  const navShellClass = navChromeVisible
+    ? "border-neutral-200/90 bg-white shadow-2xl dark:border-white/10 dark:bg-[#141C2C] dark:backdrop-blur-xl"
+    : "border-transparent bg-transparent shadow-none ring-0 backdrop-blur-none dark:bg-transparent dark:backdrop-blur-none";
+
+  const activeDesk = heroNavMinimal
+    ? "text-[#FACC15] dark:text-[#FACC15]"
+    : "text-[#0F3568] dark:text-[#FACC15]";
+  const idleDesk = heroNavMinimal
+    ? "text-white/93 drop-shadow-[0_2px_6px_rgba(0,0,0,.45)] hover:text-white group-hover:text-white dark:text-[#eaf0ff]/90 dark:hover:text-white"
+    : "text-[#2C2C2C] dark:text-white/80 group-hover:text-[#0F3568] dark:group-hover:text-[#FACC15]";
+  const lineDesk = heroNavMinimal
+    ? "bg-[#FACC15] dark:bg-[#FACC15]"
+    : "bg-[#0F3568] dark:bg-[#FACC15]";
+
   return (
-    <header className="z-50">
-      <nav
-        className={`fixed top-0 left-[50%] -translate-x-[50%] w-[95%] max-w-7xl h-20 px-6 sm:px-10 flex items-center gap-4 rounded-[50px] border border-white/20 bg-white/60 dark:bg-black/40 backdrop-blur-xl shadow-2xl transition-all duration-500 pointer-events-auto z-[60]`}
-      >
+    <header className="relative z-[100]">
+      {/*
+        Outer shell: no transform (transform breaks position:fixed descendants like NavSearch).
+        Inner pill: pointer-events-auto so only the bar captures clicks, not a full-width strip.
+      */}
+      <nav className="pointer-events-none fixed inset-x-0 top-0 z-[100] flex justify-center px-[2.5%]">
+        <div
+          className={`pointer-events-auto flex h-[4.75rem] w-full max-w-7xl items-center gap-3 rounded-[2rem] border px-5 transition-all duration-500 ease-out sm:px-8 ${navShellClass}`}
+        >
         <Link
           href="/"
-          className="flex items-center gap-2 shrink-0"
+          className="inline-flex max-w-[min(90vw,26rem)] shrink-0 items-center bg-transparent py-1 pr-2 outline-none ring-0 sm:max-w-[28rem]"
           onClick={() => setMenuOpen(false)}
+          aria-label="Adam City Tours — Home"
         >
-          <Image
-            src="/logo.png"
-            alt="Mortours"
-            width={44}
-            height={44}
-            className="rounded-full object-cover"
-            priority
+          <BrandWordmark
+            variant={heroNavMinimal ? "nav-overlay" : "nav-solid"}
+            priority={pathname === "/"}
           />
-          <span className="hidden sm:inline font-[var(--font-playfair)] text-xl font-bold tracking-wide">
-            <span className="text-[#2C2C2C] dark:text-white">Mor</span>
-            <span className="text-[#2E79C7] dark:text-[#FACC15]">tours</span>
-          </span>
         </Link>
 
         {/* Desktop Links */}
         <ul className="hidden lg:flex flex-1 justify-center items-center gap-5 xl:gap-8 min-w-0">
             {navLinks.map((link) => {
               const active = isActive(link);
-              const activeText = "text-[#2E79C7] dark:text-[#FACC15]";
-              const idleText =
-                "text-[#2C2C2C] dark:text-white/80 group-hover:text-[#2E79C7] dark:group-hover:text-[#FACC15]";
               return (
               <li key={link.label} className="relative group">
                 {link.label === "Trips" ? (
                   <>
-                    <div className={`relative flex cursor-pointer items-center gap-1 text-[13px] font-bold uppercase tracking-widest transition-all duration-300 ${active ? activeText : idleText}`}>
+                    <div className={`relative flex cursor-pointer items-center gap-1 text-[13px] font-bold uppercase tracking-widest transition-all duration-300 ${active ? activeDesk : idleDesk}`}>
                       {link.label}
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:rotate-180"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                      <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#2E79C7] dark:bg-[#FACC15] transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`} />
+                      <span className={`absolute -bottom-1 left-0 h-0.5 ${lineDesk} transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`} />
                     </div>
                     {/* Dropdown Menu */}
                     <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 w-48 z-50">
-                      <div className="bg-white dark:bg-[#1A1A2E] rounded-2xl shadow-xl dark:shadow-black/50 border border-neutral-100 dark:border-neutral-800 p-2 flex flex-col gap-1">
+                      <div className="bg-white dark:bg-[#141C2C] rounded-2xl shadow-xl dark:shadow-black/50 border border-neutral-100 dark:border-neutral-800 p-2 flex flex-col gap-1">
                         {destinations.map(dest => {
                           const destActive = pathname === `/destinations/${dest.slug}`;
                           return (
@@ -142,8 +177,8 @@ export default function Navbar() {
                             href={`/destinations/${dest.slug}`}
                             className={`rounded-xl px-4 py-2.5 text-left text-sm font-semibold transition-colors ${
                               destActive
-                                ? "bg-[#2E79C7]/10 text-[#2E79C7] dark:bg-[#FACC15]/10 dark:text-[#FACC15]"
-                                : "text-slate-700 hover:bg-neutral-50 hover:text-[#2E79C7] dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-[#FACC15]"
+                                ? "bg-[#0F3568]/10 text-[#0F3568] dark:bg-[#FACC15]/10 dark:text-[#FACC15]"
+                                : "text-slate-700 hover:bg-neutral-50 hover:text-[#0F3568] dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-[#FACC15]"
                             }`}
                           >
                             {dest.name}
@@ -155,17 +190,17 @@ export default function Navbar() {
                   </>
                 ) : link.label === "Tours" ? (
                   <>
-                    <div className={`relative flex cursor-pointer items-center gap-1 text-[13px] font-bold uppercase tracking-widest transition-all duration-300 ${active ? activeText : idleText}`}>
+                    <div className={`relative flex cursor-pointer items-center gap-1 text-[13px] font-bold uppercase tracking-widest transition-all duration-300 ${active ? activeDesk : idleDesk}`}>
                       {link.label}
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:rotate-180"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                      <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#2E79C7] dark:bg-[#FACC15] transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`} />
+                      <span className={`absolute -bottom-1 left-0 h-0.5 ${lineDesk} transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`} />
                     </div>
                     {/* Primary dropdown: "All tours" + per-city groups (each with a side-flyout on hover) */}
                     <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 w-[17rem] z-50">
-                      <div className="flex flex-col gap-1 rounded-2xl border border-neutral-100 bg-white p-2 shadow-xl dark:border-neutral-800 dark:bg-[#1A1A2E] dark:shadow-black/50">
+                      <div className="flex flex-col gap-1 rounded-2xl border border-neutral-100 bg-white p-2 shadow-xl dark:border-neutral-800 dark:bg-[#141C2C] dark:shadow-black/50">
                         <Link
                           href="/tours"
-                          className={`mb-1 rounded-xl border-b border-neutral-200 px-4 py-2.5 pb-2.5 text-left text-sm font-semibold text-slate-700 transition-colors hover:bg-neutral-50 hover:text-[#2E79C7] dark:border-white/10 dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-[#FACC15]`}
+                          className={`mb-1 rounded-xl border-b border-neutral-200 px-4 py-2.5 pb-2.5 text-left text-sm font-semibold text-slate-700 transition-colors hover:bg-neutral-50 hover:text-[#0F3568] dark:border-white/10 dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-[#FACC15]`}
                         >
                           All tours
                         </Link>
@@ -176,7 +211,7 @@ export default function Navbar() {
                           >
                             <Link
                               href={grp.allHref}
-                              className="flex items-center justify-between rounded-xl px-4 py-2.5 text-left text-sm font-semibold text-slate-700 transition-colors hover:bg-neutral-50 hover:text-[#2E79C7] dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-[#FACC15]"
+                              className="flex items-center justify-between rounded-xl px-4 py-2.5 text-left text-sm font-semibold text-slate-700 transition-colors hover:bg-neutral-50 hover:text-[#0F3568] dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-[#FACC15]"
                             >
                               <span>{grp.label}</span>
                               <svg
@@ -197,7 +232,7 @@ export default function Navbar() {
                             </Link>
                             {/* Side flyout: opens to the right on hover */}
                             <div className="absolute left-full top-0 -ml-1 pl-3 opacity-0 pointer-events-none group-hover/city:opacity-100 group-hover/city:pointer-events-auto transition-all duration-300 w-[min(90vw,19rem)]">
-                              <div className="flex flex-col gap-1 rounded-2xl border border-neutral-100 bg-white p-2 shadow-xl dark:border-neutral-800 dark:bg-[#1A1A2E] dark:shadow-black/50">
+                              <div className="flex flex-col gap-1 rounded-2xl border border-neutral-100 bg-white p-2 shadow-xl dark:border-neutral-800 dark:bg-[#141C2C] dark:shadow-black/50">
                                 <span className="px-4 pb-2 pt-1 text-[10px] font-bold uppercase tracking-[0.24em] text-[#C9A84C]">
                                   {grp.label.replace(/^Tours /, "")}
                                 </span>
@@ -209,8 +244,8 @@ export default function Navbar() {
                                       href={item.href}
                                       className={`rounded-xl px-4 py-2.5 text-left text-sm font-medium transition-colors ${
                                         itemActive
-                                          ? "bg-[#2E79C7]/10 text-[#2E79C7] dark:bg-[#FACC15]/10 dark:text-[#FACC15]"
-                                          : "text-slate-700 hover:bg-neutral-50 hover:text-[#2E79C7] dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-[#FACC15]"
+                                          ? "bg-[#0F3568]/10 text-[#0F3568] dark:bg-[#FACC15]/10 dark:text-[#FACC15]"
+                                          : "text-slate-700 hover:bg-neutral-50 hover:text-[#0F3568] dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-[#FACC15]"
                                       }`}
                                     >
                                       {item.label}
@@ -230,12 +265,14 @@ export default function Navbar() {
                     aria-current={active ? "page" : undefined}
                     className={`relative text-[13px] font-bold uppercase tracking-widest transition-all duration-300 ${
                       active
-                        ? "text-[#2E79C7] dark:text-[#FACC15]"
-                        : "text-[#2C2C2C] hover:text-[#2E79C7] dark:text-white/80 dark:hover:text-[#FACC15]"
+                        ? activeDesk
+                        : heroNavMinimal
+                          ? "text-white/93 drop-shadow-[0_2px_6px_rgba(0,0,0,.45)] hover:text-white dark:text-[#eaf0ff]/90 dark:hover:text-white"
+                          : "text-[#2C2C2C] hover:text-[#0F3568] dark:text-white/80 dark:hover:text-[#FACC15]"
                     }`}
                   >
                     {link.label}
-                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#2E79C7] dark:bg-[#FACC15] transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`} />
+                    <span className={`absolute -bottom-1 left-0 h-0.5 ${lineDesk} transition-all duration-300 ${active ? "w-full" : heroNavMinimal ? "w-0 hover:w-full" : "w-0 group-hover:w-full"}`} />
                   </Link>
                 )}
               </li>
@@ -244,20 +281,26 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop CTA / Toggle */}
-        <div className="hidden lg:flex items-center gap-3 xl:gap-4 shrink-0">
-          <ThemeToggle />
-          <LanguageSwitcher scrolled={true} />
-          <NavSearch />
+        <div className="hidden lg:flex shrink-0 items-center gap-3 xl:gap-4">
+          <ThemeToggle overlay={heroNavMinimal} />
+          <LanguageSwitcher scrolled={navChromeVisible} />
+          <NavSearch overlay={heroNavMinimal} />
         </div>
 
-        {/* Mobile: search + hamburger */}
-        <div className="lg:hidden ml-auto flex items-center gap-2">
-          <NavSearch />
+        {/* Mobile: theme + language + search + hamburger (matches desktop order; keeps drawer to nav links only) */}
+        <div className="lg:hidden ml-auto flex min-w-0 shrink-0 items-center gap-1 sm:gap-2">
+          <ThemeToggle overlay={heroNavMinimal} />
+          <LanguageSwitcher scrolled={navChromeVisible} />
+          <NavSearch overlay={heroNavMinimal} />
           <button
             id="mobile-menu-btn"
             aria-label="Toggle menu"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex flex-col gap-1.5 p-2 text-[#2C2C2C] dark:text-white"
+            className={`flex flex-col gap-1.5 p-2 transition-colors duration-300 ${
+              navChromeVisible
+                ? "text-[#2C2C2C] dark:text-white"
+                : "text-white drop-shadow-[0_2px_8px_rgba(0,0,0,.5)] dark:text-[#FFF8E8]"
+            }`}
           >
           <span
             className={`block w-6 h-0.5 bg-current transition-all duration-300 ${
@@ -276,15 +319,18 @@ export default function Navbar() {
             />
           </button>
         </div>
+        </div>
       </nav>
 
-
       {/* Mobile Menu */}
-      <div
-        className={`fixed top-[90px] left-[50%] -translate-x-[50%] w-[95%] max-w-7xl lg:hidden transition-all duration-400 overflow-hidden rounded-[2.5rem] bg-white/95 dark:bg-[#1A1A2E]/95 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl z-[60] ${
-          menuOpen ? "max-h-[calc(100vh-110px)] opacity-100 py-8 px-8 pointer-events-auto" : "max-h-0 opacity-0 py-0 px-8 pointer-events-none"
-        }`}
-      >
+      <div className="pointer-events-none fixed inset-x-0 top-[calc(4.75rem+0.75rem)] z-[100] flex justify-center px-[2.5%] lg:hidden">
+        <div
+          className={`w-full max-w-7xl overflow-hidden rounded-[2.5rem] border border-white/20 bg-white/95 shadow-2xl backdrop-blur-xl transition-all duration-400 dark:border-white/10 dark:bg-[#141C2C]/95 ${
+            menuOpen
+              ? "pointer-events-auto max-h-[calc(100vh-118px)] px-8 py-8 opacity-100"
+              : "pointer-events-none max-h-0 px-8 py-0 opacity-0"
+          }`}
+        >
         <ul className="flex flex-col px-6 gap-4 max-h-[calc(100vh-160px)] overflow-y-auto overscroll-contain w-full pb-4">
           {navLinks.map((link) => {
             const active = isActive(link);
@@ -301,7 +347,7 @@ export default function Navbar() {
                     aria-controls="mobile-trips-panel"
                     className={`flex w-full items-center justify-between py-2 text-sm font-medium uppercase tracking-wide transition-colors ${
                       active
-                        ? "text-[#2E79C7] dark:text-[#FACC15]"
+                        ? "text-[#0F3568] dark:text-[#FACC15]"
                         : "text-[#2C2C2C] dark:text-white"
                     }`}
                   >
@@ -332,7 +378,7 @@ export default function Navbar() {
                     }`}
                   >
                     <div className="min-h-0">
-                      <div className="mt-2 flex flex-col gap-2 border-l-2 border-[#2E79C7]/20 pl-4">
+                      <div className="mt-2 flex flex-col gap-2 border-l-2 border-[#0F3568]/20 pl-4">
                         {destinations.map((dest) => {
                           const destActive =
                             pathname === `/destinations/${dest.slug}`;
@@ -344,8 +390,8 @@ export default function Navbar() {
                               aria-current={destActive ? "page" : undefined}
                               className={`py-1.5 text-[13px] font-medium transition-colors ${
                                 destActive
-                                  ? "text-[#2E79C7] dark:text-[#FACC15]"
-                                  : "text-slate-600 hover:text-[#2E79C7] dark:text-slate-400 dark:hover:text-[#FACC15]"
+                                  ? "text-[#0F3568] dark:text-[#FACC15]"
+                                  : "text-slate-600 hover:text-[#0F3568] dark:text-slate-400 dark:hover:text-[#FACC15]"
                               }`}
                             >
                               {dest.name}
@@ -367,7 +413,7 @@ export default function Navbar() {
                     aria-controls="mobile-tours-panel"
                     className={`flex w-full items-center justify-between py-2 text-sm font-medium uppercase tracking-wide transition-colors ${
                       active
-                        ? "text-[#2E79C7] dark:text-[#FACC15]"
+                        ? "text-[#0F3568] dark:text-[#FACC15]"
                         : "text-[#2C2C2C] dark:text-white"
                     }`}
                   >
@@ -398,11 +444,11 @@ export default function Navbar() {
                     }`}
                   >
                     <div className="min-h-0">
-                      <div className="mt-2 flex flex-col gap-1 border-l-2 border-[#2E79C7]/20 pl-4">
+                      <div className="mt-2 flex flex-col gap-1 border-l-2 border-[#0F3568]/20 pl-4">
                         <Link
                           href="/tours"
                           onClick={() => setMenuOpen(false)}
-                          className="py-1.5 text-[13px] font-semibold text-[#2E79C7] transition-colors hover:text-[#2261A1] dark:text-[#FACC15] dark:hover:text-white"
+                          className="py-1.5 text-[13px] font-semibold text-[#0F3568] transition-colors hover:text-[#082A52] dark:text-[#FACC15] dark:hover:text-white"
                         >
                           All tours
                         </Link>
@@ -417,7 +463,7 @@ export default function Navbar() {
                                 }
                                 aria-expanded={open}
                                 aria-controls={`mobile-${grp.id}-panel`}
-                                className="flex w-full items-center justify-between py-1.5 text-[13px] font-medium text-slate-600 transition-colors hover:text-[#2E79C7] dark:text-slate-400 dark:hover:text-[#FACC15]"
+                                className="flex w-full items-center justify-between py-1.5 text-[13px] font-medium text-slate-600 transition-colors hover:text-[#0F3568] dark:text-slate-400 dark:hover:text-[#FACC15]"
                               >
                                 <span>{grp.label}</span>
                                 <svg
@@ -457,8 +503,8 @@ export default function Navbar() {
                                           aria-current={itemActive ? "page" : undefined}
                                           className={`py-1 text-[12.5px] font-medium transition-colors ${
                                             itemActive
-                                              ? "text-[#2E79C7] dark:text-[#FACC15]"
-                                              : "text-slate-500 hover:text-[#2E79C7] dark:text-slate-500 dark:hover:text-[#FACC15]"
+                                              ? "text-[#0F3568] dark:text-[#FACC15]"
+                                              : "text-slate-500 hover:text-[#0F3568] dark:text-slate-500 dark:hover:text-[#FACC15]"
                                           }`}
                                         >
                                           {item.label}
@@ -482,8 +528,8 @@ export default function Navbar() {
                   aria-current={active ? "page" : undefined}
                   className={`block py-2 text-sm font-medium uppercase tracking-wide transition-colors duration-300 ${
                     active
-                      ? "text-[#2E79C7] dark:text-[#FACC15]"
-                      : "text-[#2C2C2C] hover:text-[#2E79C7] dark:text-white dark:hover:text-[#FACC15]"
+                      ? "text-[#0F3568] dark:text-[#FACC15]"
+                      : "text-[#2C2C2C] hover:text-[#0F3568] dark:text-white dark:hover:text-[#FACC15]"
                   }`}
                 >
                   {link.label}
@@ -492,16 +538,8 @@ export default function Navbar() {
             </li>
             );
           })}
-          <li className="pt-2 flex items-center justify-between border-t border-[#E8D5B7]/50 dark:border-[#FACC15]/20">
-            <span className="text-sm font-medium uppercase tracking-wide text-[#6B6B6B] dark:text-white/60">Theme</span>
-            <ThemeToggle />
-          </li>
-          <li className="pt-2 flex items-center justify-between border-t border-[#E8D5B7]/50 dark:border-[#FACC15]/20">
-            <span className="text-sm font-medium uppercase tracking-wide text-[#6B6B6B] dark:text-white/60">Language</span>
-            <div className="bg-neutral-800 text-white rounded-full"><LanguageSwitcher /></div>
-          </li>
-
         </ul>
+        </div>
       </div>
     </header>
   );

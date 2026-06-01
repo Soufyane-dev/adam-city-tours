@@ -60,7 +60,7 @@ export default function DestinationTimeline({ timeline }: Props) {
                     isEven ? "md:pr-16 md:text-right" : "md:pl-16 md:ml-auto"
                   }`}
                 >
-                  <div className="bg-white dark:bg-[#1A1A2E]/80 backdrop-blur-md rounded-3xl p-6 shadow-xl dark:shadow-black/50 border border-slate-100 dark:border-white/5 relative group hover:-translate-y-2 transition-transform duration-500">
+                  <div className="bg-white dark:bg-[#141C2C]/80 backdrop-blur-md rounded-3xl p-6 shadow-xl dark:shadow-black/50 border border-slate-100 dark:border-white/5 relative group hover:-translate-y-2 transition-transform duration-500">
                     <div className="relative w-full h-[250px] rounded-2xl overflow-hidden mb-6">
                       <Image
                         src={event.image}

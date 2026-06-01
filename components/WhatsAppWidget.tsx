@@ -22,8 +22,9 @@ export default function WhatsAppWidget() {
     };
   }, [isOpen]);
 
-  const phoneNumber = "212664096436"; 
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Hello! I would like more information about your tours.")}`;
+  const whatsappNumber = "212667313222";
+  const phoneNumber = "212666453540";
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello! I would like more information about your tours.")}`;
   
   const openWhatsAppDirect = () => {
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
@@ -46,7 +47,7 @@ export default function WhatsAppWidget() {
         <div className="bg-[#25D366] px-5 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-white/80 text-xs font-medium">Powered by</span>
-            <span className="text-white font-bold text-sm tracking-wide">Mortours</span>
+            <span className="text-white font-bold text-sm tracking-wide">Adam City Tours</span>
           </div>
           <button 
             onClick={() => setIsOpen(false)}

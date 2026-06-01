@@ -89,7 +89,7 @@ export default function ActivitiesExperiences() {
         aria-hidden
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,168,76,0.12), transparent), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(46,121,199,0.06), transparent)",
+            "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,168,76,0.12), transparent), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(15,53,104,0.06), transparent)",
         }}
       />
 

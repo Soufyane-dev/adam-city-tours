@@ -46,8 +46,8 @@ const galleryImages = [
     category: "SAHARA",
   },
   {
-    src: "/images/hero-desert.png",
-    alt: "Golden Sahara Sunset",
+    src: "/images/gallery-sahara-camel-caravan.png",
+    alt: "Sahara camel caravan",
     category: "SAHARA",
   },
   {
@@ -133,11 +133,6 @@ const galleryImages = [
   {
     src: "/images/gallery-marrakech-atlas-view.png",
     alt: "Atlas mountain viewpoint from Marrakech region",
-    category: "MARRAKECH",
-  },
-  {
-    src: "/images/gallery-marrakech-group-atlas.png",
-    alt: "Travelers with local guides in the Atlas mountains",
     category: "MARRAKECH",
   },
   {
@@ -248,7 +243,7 @@ export default function GalleryPage() {
     <div className="min-h-screen bg-[var(--background)] relative overflow-hidden transition-colors duration-500">
       {/* ── AMBIENT LIGHTING ── */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 left-1/4 w-[800px] h-[600px] rounded-full bg-[#3B82F6]/[0.05] blur-[120px] dark:bg-[#3B82F6]/[0.02]" />
+        <div className="absolute top-0 left-1/4 w-[800px] h-[600px] rounded-full bg-[#3D7AB8]/[0.05] blur-[120px] dark:bg-[#3D7AB8]/[0.02]" />
         <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] rounded-full bg-[#6366F1]/[0.05] blur-[120px] dark:bg-[#6366F1]/[0.02]" />
       </div>
 
@@ -256,7 +251,7 @@ export default function GalleryPage() {
       <section className="relative z-10 pt-12 pb-8 px-6 lg:px-12 flex items-center justify-between max-w-[1400px] mx-auto">
         <Link
           href="/"
-          className="flex items-center gap-2 text-slate-500 dark:text-white/50 hover:text-[#2E79C7] dark:hover:text-white transition-colors duration-300 group"
+          className="flex items-center gap-2 text-slate-500 dark:text-white/50 hover:text-[#0F3568] dark:hover:text-white transition-colors duration-300 group"
         >
           <svg className="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -277,7 +272,7 @@ export default function GalleryPage() {
                 className="flex items-center gap-3 group transition-all duration-300"
               >
                 <div
-                  className={`w-5 h-5 border-[1.5px] border-slate-400 dark:border-white/30 flex items-center justify-center transition-all duration-300 group-hover:border-[#2E79C7] ${activeCategory === cat ? "bg-slate-800 border-slate-800 dark:bg-white dark:border-white" : "bg-transparent"}`}
+                  className={`w-5 h-5 border-[1.5px] border-slate-400 dark:border-white/30 flex items-center justify-center transition-all duration-300 group-hover:border-[#0F3568] ${activeCategory === cat ? "bg-slate-800 border-slate-800 dark:bg-white dark:border-white" : "bg-transparent"}`}
                 >
                   {activeCategory === cat && (
                     <div className="w-2.5 h-2.5 bg-white dark:bg-slate-800 rounded-[1px]" />

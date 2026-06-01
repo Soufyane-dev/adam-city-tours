@@ -17,7 +17,7 @@ export default function KarimGuide({ initialOpen = false }: KarimGuideProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "model",
-      parts: [{ text: "Hello! I am Karim, your luxury Moroccan tour guide. How can I help you plan your journey?" }]
+      parts: [{ text: "Hello! I am Adam from Adam City Tours, your luxury Moroccan tour guide. How can I help you plan your journey?" }]
     }
   ]);
   const [input, setInput] = useState("");
@@ -90,17 +90,17 @@ export default function KarimGuide({ initialOpen = false }: KarimGuideProps) {
 
   return (
     <div ref={widgetRef} className="pointer-events-none">
-      {/* Expanded Chat Box — anchored to bottom-left */}
+      {/* Expanded Chat Box — anchored to bottom-right */}
       {isOpen && (
-        <div className="pointer-events-auto fixed bottom-6 left-6 z-[60] w-[min(92vw,360px)] h-[min(70vh,480px)] bg-white/80 dark:bg-[#1A1A2E]/80 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-2xl rounded-2xl flex flex-col overflow-hidden origin-bottom-left animate-in fade-in zoom-in-95 duration-300">
+        <div className="pointer-events-auto fixed bottom-6 right-6 z-[60] w-[min(92vw,360px)] h-[min(70vh,480px)] bg-white/80 dark:bg-[#141C2C]/80 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-2xl rounded-2xl flex flex-col overflow-hidden origin-bottom-right animate-in fade-in zoom-in-95 duration-300">
           {/* Header */}
           <div className="bg-white/40 dark:bg-black/20 backdrop-blur-md px-5 py-3 border-b border-white/20 dark:border-white/5 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="text-[#2C2C2C] dark:text-white font-bold tracking-wide flex items-center gap-1.5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#2E79C7] dark:text-[#FACC15]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#0F3568] dark:text-[#FACC15]">
                   <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
                 </svg>
-                Karim
+                Adam
               </span>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-[#2C2C2C]/60 dark:text-white/60 hover:text-[#2C2C2C] dark:hover:text-white transition-colors">
@@ -114,7 +114,7 @@ export default function KarimGuide({ initialOpen = false }: KarimGuideProps) {
               <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                 <div className={`max-w-[85%] p-3.5 rounded-2xl text-[14.5px] leading-relaxed relative ${
                   msg.role === "user"
-                    ? "bg-[#2E79C7] text-white rounded-br-sm"
+                    ? "bg-[#0F3568] text-white rounded-br-sm"
                     : "bg-white/90 dark:bg-black/50 text-[#2C2C2C] dark:text-white border border-white/50 dark:border-white/10 rounded-bl-sm shadow-sm"
                 }`}>
                   {msg.parts[0].text}
@@ -124,9 +124,9 @@ export default function KarimGuide({ initialOpen = false }: KarimGuideProps) {
             {isLoading && (
               <div className="flex justify-start">
                 <div className="max-w-[80%] px-4 py-3 rounded-2xl bg-white/90 dark:bg-black/50 border border-white/50 dark:border-white/10 rounded-bl-sm shadow-sm flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#2E79C7] dark:bg-[#FACC15] animate-bounce"></span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#2E79C7] dark:bg-[#FACC15] animate-bounce [animation-delay:0.2s]"></span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#2E79C7] dark:bg-[#FACC15] animate-bounce [animation-delay:0.4s]"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0F3568] dark:bg-[#FACC15] animate-bounce"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0F3568] dark:bg-[#FACC15] animate-bounce [animation-delay:0.2s]"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0F3568] dark:bg-[#FACC15] animate-bounce [animation-delay:0.4s]"></span>
                 </div>
               </div>
             )}
@@ -140,13 +140,13 @@ export default function KarimGuide({ initialOpen = false }: KarimGuideProps) {
                 type="text" 
                 value={input}
                 onChange={e => setInput(e.target.value)}
-                placeholder="Message Karim..."
-                className="flex-1 bg-white/80 dark:bg-black/50 border border-white/60 dark:border-white/10 rounded-full px-4 py-2.5 text-[15px] text-[#2C2C2C] dark:text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#2E79C7]/50"
+                placeholder="Message Adam..."
+                className="flex-1 bg-white/80 dark:bg-black/50 border border-white/60 dark:border-white/10 rounded-full px-4 py-2.5 text-[15px] text-[#2C2C2C] dark:text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#0F3568]/50"
               />
               <button 
                 type="submit" 
                 disabled={isLoading || !input.trim()}
-                className="absolute right-1 w-8 h-8 flex items-center justify-center rounded-full bg-[#2E79C7] text-white hover:bg-[#2261A1] transition-colors disabled:opacity-50"
+                className="absolute right-1 w-8 h-8 flex items-center justify-center rounded-full bg-[#0F3568] text-white hover:bg-[#082A52] transition-colors disabled:opacity-50"
               >
                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="rotate-45 ml-[-2px] mt-[-2px]"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
               </button>
@@ -155,9 +155,9 @@ export default function KarimGuide({ initialOpen = false }: KarimGuideProps) {
         </div>
       )}
 
-      {/* Floating Button — compact icon stacked above the contact menu on the left */}
+      {/* Floating Button — compact icon stacked above the contact menu on the right */}
       {!isOpen && (
-        <div className="pointer-events-auto fixed bottom-[15rem] left-6 z-50 group">
+        <div className="pointer-events-auto fixed bottom-[15rem] right-6 z-50 group">
           <button
             onClick={() => setIsOpen(true)}
             aria-label="Ask AI guide"
@@ -178,12 +178,12 @@ export default function KarimGuide({ initialOpen = false }: KarimGuideProps) {
               strokeWidth="2.3"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="relative z-10 text-[#2E79C7]"
+              className="relative z-10 text-[#0F3568]"
             >
               <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
             </svg>
           </button>
-          <span className="absolute left-full top-1/2 -translate-y-1/2 ml-4 bg-white/95 dark:bg-black/90 text-neutral-800 dark:text-neutral-100 text-xs font-semibold px-3 py-1.5 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+          <span className="absolute right-full top-1/2 -translate-y-1/2 mr-4 bg-white/95 dark:bg-black/90 text-neutral-800 dark:text-neutral-100 text-xs font-semibold px-3 py-1.5 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
             Ask AI guide
           </span>
         </div>

@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
       model: "gemini-2.5-flash",
-      systemInstruction: "You are Karim, a highly knowledgeable, polite, and eloquent AI tour guide for Mortours, a luxury travel agency in Morocco. Mortours offers premium guided tours, luxury desert camps, and unforgettable cultural journeys. Provide concise, friendly, and helpful answers (keep responses brief unless the user asks for a detailed itinerary or story). Gently encourage the user to book tours. Default to English, but reply in the user's language if they speak another language."
+      systemInstruction: "You are Adam, a highly knowledgeable, polite, and eloquent AI tour guide for Adam City Tours, a luxury travel agency in Morocco. Adam City Tours offers premium guided tours, luxury desert camps, and unforgettable cultural journeys. Always name the company as Adam City Tours only—never Adam City Tours, Adam City Tours Adventure, or any other name. Provide concise, friendly, and helpful answers (keep responses brief unless the user asks for a detailed itinerary or story). Gently encourage the user to book tours. Default to English, but reply in the user's language if they speak another language."
     });
 
     const chat = model.startChat({
@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
   } catch (error: unknown) {
     console.error("Gemini API Error:", error);
     const message =
-      error instanceof Error ? error.message : "Karim encountered an error while processing your request.";
+      error instanceof Error ? error.message : "Adam encountered an error while processing your request.";
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

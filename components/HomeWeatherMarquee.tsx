@@ -7,7 +7,7 @@ function iconForCode(code: number) {
   if (code === 0 || code === 1)
     return <Sun className="h-6 w-6 text-amber-500 animate-[spin_8s_linear_infinite]" aria-hidden />;
   if (code === 2)
-    return <CloudSun className="h-6 w-6 text-[#2E79C7]" aria-hidden />;
+    return <CloudSun className="h-6 w-6 text-[#0F3568]" aria-hidden />;
   if (code === 3)
     return <Cloud className="h-6 w-6 text-slate-500 dark:text-slate-300" aria-hidden />;
   if (code >= 51 && code <= 67)
@@ -16,7 +16,7 @@ function iconForCode(code: number) {
     return <CloudLightning className="h-6 w-6 text-violet-500" aria-hidden />;
   if (code >= 71 && code <= 77)
     return <Cloud className="h-6 w-6 text-sky-400" aria-hidden />;
-  return <CloudSun className="h-6 w-6 text-[#2E79C7]" aria-hidden />;
+  return <CloudSun className="h-6 w-6 text-[#0F3568]" aria-hidden />;
 }
 
 function CityPill({ city, index }: { city: HomeCityWeatherRow; index: number }) {

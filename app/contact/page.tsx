@@ -1,11 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const infoItems = [
+type ContactItem = {
+  label: string;
+  value: string;
+  icon: React.ReactElement;
+  href?: string;
+  secondary?: string;
+};
+
+const infoItems: ContactItem[] = [
   {
     label: "Address",
-    value: "Marrakesh 40000",
+    value: "Douar Sidi Moussa, Saada, Marrakech",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 21s6-6.01 6-10a6 6 0 10-12 0c0 3.99 6 10 6 10z" />
@@ -15,8 +23,8 @@ const infoItems = [
   },
   {
     label: "Phone",
-    value: "06 64 09 64 36",
-    href: "tel:+212664096436",
+    value: "06 66 45 35 40",
+    href: "tel:+212666453540",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M2.25 6.338c0-.414.336-.75.75-.75h2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-.75.75H3a.75.75 0 01-.75-.75V6.338zm0 0C2.25 14.618 9.382 21.75 17.662 21.75h2.25a.75.75 0 00.75-.75v-2.25a.75.75 0 00-.75-.75h-2.25a.75.75 0 00-.75.75v.75a12.75 12.75 0 01-12.75-12.75h.75A.75.75 0 006 6V3.75a.75.75 0 00-.75-.75H3a.75.75 0 00-.75.75v2.588z" />
@@ -25,9 +33,8 @@ const infoItems = [
   },
   {
     label: "Email",
-    value: "berbersurfguide@gmail.com",
-    secondary: "contact@berbersurfguide.com",
-    href: "mailto:berbersurfguide@gmail.com",
+    value: "adamcitytours274@gmail.com",
+    href: "mailto:adamcitytours274@gmail.com",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3.75 7.5l8.25 6 8.25-6M4.5 6h15A1.5 1.5 0 0121 7.5v9a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 16.5v-9A1.5 1.5 0 014.5 6z" />
@@ -48,7 +55,7 @@ const infoItems = [
 ];
 
 const inputClass =
-  "w-full bg-white border border-[#dde0e6] rounded-xl px-4 py-3 text-sm text-[#1a1a1f] placeholder-[#9a9ba4] focus:outline-none focus:ring-2 focus:ring-[#2E79C7]/30 focus:border-[#2E79C7] transition-all duration-200";
+  "w-full bg-white border border-[#dde0e6] rounded-xl px-4 py-3 text-sm text-[#1a1a1f] placeholder-[#9a9ba4] focus:outline-none focus:ring-2 focus:ring-[#0F3568]/30 focus:border-[#0F3568] transition-all duration-200";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -60,6 +67,12 @@ export default function ContactPage() {
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
 
+  useEffect(() => {
+    const q = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
+    if (!q || q.get("tour") !== "airport-transfer") return;
+    setFormData((prev) => (prev.tour ? prev : { ...prev, tour: "airport-transfer" }));
+  }, []);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -69,10 +82,24 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    await new Promise((r) => setTimeout(r, 900));
-    setStatus("success");
-    setFormData({ name: "", phone: "", email: "", tour: "", message: "" });
-    setTimeout(() => setStatus("idle"), 5000);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setFormData({ name: "", phone: "", email: "", tour: "", message: "" });
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("idle");
+        alert("Une erreur s'est produite. Veuillez réessayer.");
+      }
+    } catch {
+      setStatus("idle");
+      alert("Une erreur s'est produite. Veuillez réessayer.");
+    }
   };
 
   return (
@@ -94,7 +121,7 @@ export default function ContactPage() {
             {infoItems.map((item, index) => (
               <div key={item.label}>
                 <div className={`flex items-start gap-3 ${index !== 0 ? "pt-5" : ""}`}>
-                  <span className="shrink-0 mt-0.5 w-9 h-9 rounded-lg bg-[#2E79C7]/10 text-[#2E79C7] flex items-center justify-center">
+                  <span className="shrink-0 mt-0.5 w-9 h-9 rounded-lg bg-[#0F3568]/10 text-[#0F3568] flex items-center justify-center">
                     {item.icon}
                   </span>
                   <div className="min-w-0">
@@ -104,7 +131,7 @@ export default function ContactPage() {
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-sm font-medium text-[#1a1a1f] hover:text-[#2E79C7] transition-colors break-all"
+                        className="text-sm font-medium text-[#1a1a1f] hover:text-[#0F3568] transition-colors break-all"
                       >
                         {item.value}
                       </a>
@@ -112,7 +139,7 @@ export default function ContactPage() {
                       <p className="text-sm font-medium text-[#1a1a1f]">{item.value}</p>
                     )}
                     {item.secondary && (
-                      <p className="text-sm text-[#2E79C7] break-all mt-0.5">{item.secondary}</p>
+                      <p className="text-sm text-[#0F3568] break-all mt-0.5">{item.secondary}</p>
                     )}
                   </div>
                 </div>
@@ -125,7 +152,7 @@ export default function ContactPage() {
             {/* WhatsApp CTA */}
             <div className="pt-6 mt-6 border-t border-[#eaebef]">
               <a
-                href="https://wa.me/212664096436"
+                href="https://wa.me/212667313222"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#1ebe57] text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-all duration-200 hover:shadow-md hover:shadow-green-300/30"
@@ -177,7 +204,7 @@ export default function ContactPage() {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+212 6XX XXX XXX"
+                    placeholder="+212 665 138 697"
                     className={inputClass}
                   />
                 </div>
@@ -212,6 +239,7 @@ export default function ContactPage() {
                     className={inputClass}
                   >
                     <option value="">Select a tour...</option>
+                    <option value="airport-transfer">Marrakech airport transfer (RAK)</option>
                     <option value="marrakech">Imperial Marrakech</option>
                     <option value="sahara">Sahara Desert Adventure</option>
                     <option value="chefchaouen">Blue City Chefchaouen</option>
@@ -256,7 +284,7 @@ export default function ContactPage() {
                   id="contact-submit-btn"
                   type="submit"
                   disabled={status === "sending" || status === "success"}
-                  className="w-full sm:w-auto bg-[#2E79C7] hover:bg-[#2261A1] text-white font-semibold text-sm tracking-wider uppercase px-10 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#2E79C7]/30 hover:-translate-y-px disabled:opacity-60"
+                  className="w-full sm:w-auto bg-[#0F3568] hover:bg-[#082A52] text-white font-semibold text-sm tracking-wider uppercase px-10 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#0F3568]/30 hover:-translate-y-px disabled:opacity-60"
                 >
                   {status === "sending" ? "Sending…" : "Send Message"}
                 </button>
@@ -272,8 +300,8 @@ export default function ContactPage() {
 
           <div className="w-full overflow-hidden rounded-xl border border-[#e4e5ea]">
             <iframe
-              title="Mortours location map"
-              src="https://www.google.com/maps?q=Marrakesh+40000&output=embed"
+              title="Adam City Tours location map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.2!2d-7.9811!3d31.6295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee8d96179e51%3A0x5950b6534f87adb8!2sAdam%20city%20tours!5e0!3m2!1sfr!2sma!4v1716159000000"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="w-full h-[300px] border-0"
@@ -283,23 +311,30 @@ export default function ContactPage() {
           <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="bg-[#f8f9fb] border border-[#e4e5ea] rounded-xl p-4">
               <p className="text-xs text-[#6a6b71] uppercase tracking-wide font-semibold mb-0.5">Address</p>
-              <p className="text-sm font-medium text-[#17181b]">Marrakesh 40000</p>
+              <a
+                href="https://maps.app.goo.gl/zLKn96LAzi6sVYE4A"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-[#0F3568] hover:underline"
+              >
+                Douar Sidi Moussa, Saada, Marrakech
+              </a>
             </div>
             <a
-              href="https://wa.me/212664096436"
+              href="https://wa.me/212667313222"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#f8f9fb] border border-[#e4e5ea] rounded-xl p-4 hover:border-[#25D366] hover:bg-green-50/50 transition-colors"
             >
               <p className="text-xs text-[#6a6b71] uppercase tracking-wide font-semibold mb-0.5">WhatsApp</p>
-              <p className="text-sm font-medium text-[#17181b]">06 64 09 64 36</p>
+              <p className="text-sm font-medium text-[#17181b]">06 67 31 32 22</p>
             </a>
             <a
-              href="tel:+212664096436"
-              className="bg-[#f8f9fb] border border-[#e4e5ea] rounded-xl p-4 hover:border-[#2E79C7] hover:bg-blue-50/50 transition-colors"
+              href="tel:+212666453540"
+              className="bg-[#f8f9fb] border border-[#e4e5ea] rounded-xl p-4 hover:border-[#0F3568] hover:bg-[#0F3568]/[0.06] transition-colors"
             >
               <p className="text-xs text-[#6a6b71] uppercase tracking-wide font-semibold mb-0.5">Phone</p>
-              <p className="text-sm font-medium text-[#17181b]">06 64 09 64 36</p>
+              <p className="text-sm font-medium text-[#17181b]">06 66 45 35 40</p>
             </a>
           </div>
         </div>

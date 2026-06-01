@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { Users, Briefcase, Snowflake, Wifi, ShieldCheck } from "lucide-react";
 
-/** A single vehicle in the Mortours fleet. */
+/** A single vehicle in the Adam City Tours fleet. */
 type Vehicle = {
   id: string;
   name: string;
@@ -39,7 +39,7 @@ const vehicles: Vehicle[] = [
     features: ["Climate", "Wi-Fi", "Private driver"],
     photo: {
       src: "/images/fleet-vclass-lineup.jpg",
-      alt: "Mortours Mercedes-Benz V-Class fleet lined up at a private estate",
+      alt: "Adam City Tours Mercedes-Benz V-Class fleet lined up at a private estate",
       position: "center",
     },
     silhouette: (
@@ -78,7 +78,7 @@ const vehicles: Vehicle[] = [
     features: ["4×4", "Off-road", "Desert spec"],
     photo: {
       src: "/images/fleet-land-cruiser-dune.jpg",
-      alt: "Mortours Toyota Land Cruiser drifting over Sahara dunes",
+      alt: "Adam City Tours Toyota Land Cruiser drifting over Sahara dunes",
       position: "center",
     },
     silhouette: (
@@ -110,14 +110,14 @@ const vehicles: Vehicle[] = [
     category: "Grand minibus",
     tagline:
       "For larger parties and multi-city expeditions — editorial leather seating, generous luggage bay, panoramic windows.",
-    accent: "from-[#2E79C7] via-[#4a96e3] to-[#1a4f85]",
+    accent: "from-[#0F3568] via-[#3D7AB8] to-[#061E38]",
     illustrationTone: "text-[#0f2340]",
     seats: "1–16 pax",
     luggage: "16 cases",
     features: ["Panorama", "Wi-Fi", "Refreshments"],
     photo: {
       src: "/images/fleet-sprinter-coastal.jpg",
-      alt: "Mortours Mercedes-Benz Sprinter fleet lined up on a coastal road",
+      alt: "Adam City Tours Mercedes-Benz Sprinter fleet lined up on a coastal road",
       position: "center",
     },
     silhouette: (
@@ -171,7 +171,7 @@ export default function OurFleet() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-32 bottom-10 h-80 w-80 rounded-full bg-[#2E79C7]/[0.06] blur-3xl"
+        className="pointer-events-none absolute -right-32 bottom-10 h-80 w-80 rounded-full bg-[#0F3568]/[0.06] blur-3xl"
       />
       {/* Top gold hairline */}
       <div
@@ -198,7 +198,7 @@ export default function OurFleet() {
             Our Vehicles
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-slate-500 dark:text-slate-400">
-            Every Mortours journey travels in a privately-chartered vehicle with a vetted
+            Every Adam City Tours journey travels in a privately-chartered vehicle with a vetted
             local driver. Editorial interiors, climate comfort, and road-safety standards
             worthy of a modern luxury house.
           </p>

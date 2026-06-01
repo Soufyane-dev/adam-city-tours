@@ -153,7 +153,7 @@ export default function AboutAnimatedCounters() {
   return (
     <section
       ref={ref}
-      aria-label="Mortours in numbers"
+      aria-label="Adam City Tours in numbers"
       className="relative overflow-hidden border-y border-slate-200/70 bg-[#FDFBF7] py-20 dark:border-white/[0.06] dark:bg-[#08080f] sm:py-24"
     >
       {/* Soft gold glow orbs in the corners for a luxe ambience */}
@@ -185,13 +185,13 @@ export default function AboutAnimatedCounters() {
 
       <div className="relative mx-auto max-w-6xl px-6 lg:px-12">
         <div className="mb-10 flex flex-col items-center text-center sm:mb-14">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.36em] text-[#2E79C7] sm:text-[11px]">
-            Mortours in numbers
+          <span className="text-[10px] font-semibold uppercase tracking-[0.36em] text-[#0F3568] sm:text-[11px]">
+            Adam City Tours in numbers
           </span>
           <div aria-hidden className="mt-4 flex items-center gap-1.5">
-            <span className="h-1 w-1 rounded-full bg-[#2E79C7]" />
-            <span className="h-1.5 w-1.5 rotate-45 bg-[#2E79C7]" />
-            <span className="h-1 w-1 rounded-full bg-[#2E79C7]" />
+            <span className="h-1 w-1 rounded-full bg-[#0F3568]" />
+            <span className="h-1.5 w-1.5 rotate-45 bg-[#0F3568]" />
+            <span className="h-1 w-1 rounded-full bg-[#0F3568]" />
           </div>
         </div>
 

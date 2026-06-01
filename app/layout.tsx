@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -8,6 +8,12 @@ import FloatingContact from "@/components/FloatingContact";
 import KarimGuideDynamic from "@/components/KarimGuideDynamic";
 import SiteJsonLd from "@/components/SiteJsonLd";
 import { SITE_URL } from "@/lib/site";
+import {
+  BRAND_ICON_PATH,
+  BRAND_OG_HEIGHT,
+  BRAND_OG_IMAGE_PATH,
+  BRAND_OG_WIDTH,
+} from "@/lib/brand-logo";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -29,58 +35,84 @@ const bebas = Bebas_Neue({
   preload: false,
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0F3568" },
+    { media: "(prefers-color-scheme: dark)", color: "#141C2C" },
+  ],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Mortours — Discover Morocco in Style",
-    template: "%s | Mortours",
+    default: "Adam City Tours — Discover Morocco",
+    template: "%s | Adam City Tours",
   },
   description:
-    "Experience the magic of Morocco with Mortours. Premium guided tours, luxury desert camps, and unforgettable cultural journeys tailored to you.",
+    "Agence de transport touristique au Maroc. Circuits premium, désert, Marrakech, montagnes et séjours sur mesure avec chauffeur-guide.",
   keywords: [
     "Morocco tours",
     "Marrakech tours",
+    "Chefchaouen tours",
+    "Fes Morocco",
+    "Essaouira travel",
+    "Merzouga desert tours",
+    "Atlas mountains Morocco",
     "Sahara desert",
-    "Morocco travel",
-    "guided tours Morocco",
-    "luxury travel Morocco",
+    "luxury Morocco",
+    "private Morocco tours",
   ],
   openGraph: {
-    title: "Mortours — Discover Morocco in Style",
+    title: "Adam City Tours — Discover Morocco",
     description:
-      "Experience the magic of Morocco with Mortours. Premium guided tours, luxury desert camps, and unforgettable cultural journeys tailored to you.",
-    siteName: "Mortours",
+      "Agence de transport touristique au Maroc. Tours privés, confort et accompagnement local.",
+    siteName: "Adam City Tours",
     type: "website",
     locale: "en_US",
     url: SITE_URL,
     images: [
       {
-        url: "/images/hero-desert.png",
-        width: 1200,
-        height: 630,
-        alt: "Mortours luxury travel in Morocco",
+        url: BRAND_OG_IMAGE_PATH,
+        width: BRAND_OG_WIDTH,
+        height: BRAND_OG_HEIGHT,
+        alt: "Adam City Tours — Discover Morocco — coastal Morocco",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mortours — Discover Morocco in Style",
+    title: "Adam City Tours — Discover Morocco",
     description:
       "Premium Morocco tours with private transport, trusted local guides, and elegant stays.",
-    images: ["/images/hero-desert.png"],
+    images: [BRAND_OG_IMAGE_PATH],
   },
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: BRAND_ICON_PATH,
+    apple: BRAND_ICON_PATH,
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (

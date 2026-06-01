@@ -13,7 +13,7 @@ export default function KarimGuideDynamic() {
 
   if (!loadWidget) {
     return (
-      <div className="pointer-events-auto fixed bottom-[15rem] left-6 z-50 group">
+      <div className="pointer-events-auto fixed bottom-[15rem] right-6 z-50 group">
         <button
           type="button"
           onClick={() => setLoadWidget(true)}
@@ -34,12 +34,12 @@ export default function KarimGuideDynamic() {
             strokeWidth={2.3}
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="relative z-10 text-[#2E79C7]"
+            className="relative z-10 text-[#0F3568]"
           >
             <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
           </svg>
         </button>
-        <span className="absolute left-full top-1/2 -translate-y-1/2 ml-4 bg-white/95 dark:bg-black/90 text-neutral-800 dark:text-neutral-100 text-xs font-semibold px-3 py-1.5 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+        <span className="absolute right-full top-1/2 -translate-y-1/2 mr-4 bg-white/95 dark:bg-black/90 text-neutral-800 dark:text-neutral-100 text-xs font-semibold px-3 py-1.5 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
           Ask AI guide
         </span>
       </div>

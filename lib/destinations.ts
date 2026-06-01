@@ -42,7 +42,7 @@ export const destinations: Destination[] = [
     name: "Marrakech",
     shortDescription: "The vibrant heart of Moroccan culture and history.",
     fullDescription: "Marrakech, the 'Red City', is a place of magic and mystery. From the bustling Jemaa el-Fnaa square to the serene Majorelle Garden, it offers a sensory explosion of colors, scents, and sounds. Explore ancient palaces, get lost in the labyrinthine souks, and experience the ultimate Moroccan hospitality in world-class riads.",
-    image: "/images/dest-marrakech-modern.png",
+    image: "/images/dest-marrakech-koutoubia.png",
     coordinates: { lat: 31.6295, lon: -7.9811 },
     climate: {
       bestTimeRange: "March–May & mid-September–November",
@@ -259,7 +259,7 @@ export const destinations: Destination[] = [
         description:
           "The tarmac ends and the dunes begin — 22 kilometres of rust-gold sand rolling out of the Hamada plain, some peaks towering 150 metres above the desert floor.",
         fact: "Erg Chebbi is one of only two true ergs (sand seas) in Morocco — local legend says the dunes were sent as divine punishment for a family who refused hospitality to a pilgrim.",
-        image: "/images/hero-desert.png",
+        image: "/images/dest-merzouga.png",
       },
       {
         id: "camel-caravan",
@@ -274,7 +274,7 @@ export const destinations: Destination[] = [
         title: "The Luxury Desert Camp",
         description:
           "Arrive at a private camp tucked between the tallest dunes — hand-woven rugs, copper lanterns, a four-poster bed, and a tagine already bubbling over the fire.",
-        fact: "Mortours works only with carpeted, en-suite camps that pack out every trace — the best ones rotate location each season so the desert keeps its silence.",
+        fact: "Adam City Tours works only with carpeted, en-suite camps that pack out every trace — the best ones rotate location each season so the desert keeps its silence.",
         image: "/images/tour-desert-camp.png",
       },
       {

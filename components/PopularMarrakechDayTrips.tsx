@@ -28,7 +28,7 @@ const dayTrips = [
   },
   {
     title: "Agafay desert",
-    image: "/images/hero-desert.png",
+    image: "/images/fleet-land-cruiser-dune.jpg",
     detailsHref: "/tours/sahara-desert-adventure",
     quoteHref: "/contact?trip=agafay-desert",
   },

@@ -13,15 +13,17 @@ export default function DestinationCard({ slug, name, image, priority }: Destina
   return (
     <Link 
       href={`/destinations/${slug}`}
-      className="relative h-[450px] w-full group block overflow-hidden rounded-[2rem] cursor-pointer transition-all duration-700 hover:shadow-[0_20px_50px_rgba(46,121,199,0.4)]"
+      className="relative h-[450px] w-full group block overflow-hidden rounded-[2rem] cursor-pointer transition-all duration-700 hover:shadow-[0_20px_50px_rgba(15,53,104,0.4)]"
     >
       {/* Background Image */}
       <Image
         src={image}
         alt={name}
         fill
-        sizes="(max-width: 767px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 30vw"
+        sizes="(max-width: 767px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 640px"
         priority={priority}
+        
+        {...(!image.startsWith("/") ? { quality: 100 as const } : {})}
         className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
       />
       
@@ -39,7 +41,7 @@ export default function DestinationCard({ slug, name, image, priority }: Destina
 
         {/* Explore Button — always visible on mobile, hover on desktop */}
         <div className="transition-all duration-500 transform opacity-100 md:translate-y-4 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-          <span className="px-8 py-3 bg-[#2E79C7] text-white rounded-full font-bold text-sm tracking-widest uppercase shadow-lg shadow-[#2E79C7]/20 inline-block">
+          <span className="px-8 py-3 bg-[#0F3568] text-white rounded-full font-bold text-sm tracking-widest uppercase shadow-lg shadow-[#0F3568]/20 inline-block">
             Explore
           </span>
         </div>

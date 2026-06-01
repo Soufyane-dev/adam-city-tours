@@ -112,7 +112,7 @@ export default async function TourDetailPage({ params }: Props) {
             Back to Tours
           </Link>
           <div className="flex flex-wrap gap-3 mb-4">
-            <span className="bg-[#2E79C7] text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
+            <span className="bg-[#0F3568] text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
               {tour.duration}
             </span>
             <span className={`text-xs font-semibold px-3 py-1 rounded-full ${difficultyColor[tour.difficulty] ?? "bg-gray-100 text-gray-700"}`}>
@@ -147,7 +147,7 @@ export default async function TourDetailPage({ params }: Props) {
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {tour.highlights.map((h) => (
                   <li key={h} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-[#2E79C7]/15 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-full bg-[#0F3568]/15 flex items-center justify-center shrink-0 mt-0.5">
                       <svg className="w-3.5 h-3.5 text-[#FACC15]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                       </svg>
@@ -167,11 +167,11 @@ export default async function TourDetailPage({ params }: Props) {
                 {tour.program.map((day, idx) => (
                   <details
                     key={day.day}
-                    className="group bg-white dark:bg-[#1A1A2E] border border-[#E8D5B7]/60 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm"
+                    className="group bg-white dark:bg-[#141C2C] border border-[#E8D5B7]/60 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm"
                     open={idx === 0}
                   >
                     <summary className="flex items-center gap-4 p-5 cursor-pointer list-none hover:bg-[#FAF6F0] dark:hover:bg-white/5 transition-colors duration-300">
-                      <div className="w-10 h-10 rounded-full bg-[#2E79C7] text-white flex items-center justify-center font-bold text-sm shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-[#0F3568] text-white flex items-center justify-center font-bold text-sm shrink-0">
                         {day.day}
                       </div>
                       <div className="flex-1">
@@ -245,7 +245,7 @@ export default async function TourDetailPage({ params }: Props) {
                 </div>
 
                 <a
-                  href={`https://wa.me/212600000000?text=Hi%20Mortours!%20I%27d%20like%20to%20book%20the%20${encodeURIComponent(tour.title)}%20tour.`}
+                  href={`https://wa.me/212667313222?text=Hi%20Adam%20City%20Tours!%20I%27d%20like%20to%20book%20the%20${encodeURIComponent(tour.title)}%20tour.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   id={`tour-detail-book-${tour.id}`}

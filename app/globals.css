@@ -10,12 +10,12 @@
   --color-cream-dark: #FAF9F6;
   --color-sand: #F2EBE1;
   --color-sand-dark: #C9A84C;
-  --color-primary: #1E40AF;
-  --color-primary-light: #3B82F6;
-  --color-primary-dark: #1E3A8A;
+  --color-primary: #0f3568;
+  --color-primary-light: #3d7ab8;
+  --color-primary-dark: #061e38;
   --color-charcoal: #2C2C2C;
   --color-charcoal-light: #3D3D3D;
-  --color-midnight: #1A1A2E;
+  --color-midnight: #141c2c;
   --color-warm-white: #FEFCF9;
   --color-text-primary: #2C2C2C;
   --color-text-secondary: #6B6B6B;
@@ -30,8 +30,42 @@
 }
 
 .dark {
-  --background: #1A1A2E;
+  --background: #141c2c;
   --foreground: #FEFCF9;
+}
+
+/*
+ * Google Translate injects a native <select> that can escape Tailwind `hidden`
+ * and appear as a small gray box (often near the header). We use a custom
+ * language menu + cookies; hide every gadget UI Google adds.
+ */
+.google-translate-offscreen {
+  position: absolute !important;
+  left: -9999px !important;
+  top: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  border: 0 !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+}
+
+#google_translate_element .goog-te-gadget,
+#google_translate_element .goog-te-combo,
+.goog-te-gadget,
+.goog-te-gadget-simple,
+.goog-te-combo,
+iframe.goog-te-banner-frame,
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+.skiptranslate iframe {
+  display: none !important;
+  visibility: hidden !important;
 }
 
 * {
@@ -86,7 +120,7 @@ body {
 
 /* Primary gradient text */
 .text-gradient-primary {
-  background: linear-gradient(135deg, #1E40AF, #3B82F6, #1E3A8A);
+  background: linear-gradient(135deg, #061e38, #0f3568, #3d7ab8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -158,26 +192,6 @@ body {
 .animate-delay-300 { animation-delay: 0.3s; }
 .animate-delay-400 { animation-delay: 0.4s; }
 .animate-delay-500 { animation-delay: 0.5s; }
-
-@keyframes trustedByMarquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.trusted-by-track {
-  animation: trustedByMarquee 42s linear infinite;
-  will-change: transform;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .trusted-by-track {
-    animation: none !important;
-  }
-}
 
 @keyframes weatherCitiesMarquee {
   0% {
@@ -362,7 +376,7 @@ body {
 .luxury-pill:hover,
 .luxury-pill:focus-visible,
 .luxury-pill.is-active {
-  color: #1a1a2e;
+  color: #141C2C;
   border-color: transparent;
   transform: translateY(-2px);
   box-shadow:
@@ -405,7 +419,7 @@ body {
 /* ──────────────────────────────────────────────────────────────
    Luxury pill — blue (Chefchaouen) variant
    Same layered animation as .luxury-pill, recolored for our
-   Morocco-blue accent (#2E79C7). Works for two flavours:
+   Morocco-blue accent (#0F3568). Works for two flavours:
      • .luxury-pill-blue              → ghost / outlined (fills blue on hover)
      • .luxury-pill-blue.is-filled    → already filled blue (shine + lift + glow only)
    ────────────────────────────────────────────────────────────── */
@@ -429,10 +443,10 @@ body {
   border-radius: inherit;
   background: linear-gradient(
     110deg,
-    #2261A1 0%,
-    #3a8fdd 45%,
-    #2E79C7 70%,
-    #2261A1 100%
+    #082A52 0%,
+    #4a84bc 45%,
+    #0F3568 70%,
+    #082A52 100%
   );
   opacity: 0;
   transform: translateX(-12%);
@@ -464,8 +478,8 @@ body {
 .luxury-pill-blue.is-active {
   transform: translateY(-2px);
   box-shadow:
-    0 14px 32px -12px rgba(46, 121, 199, 0.55),
-    0 2px 8px -2px rgba(46, 121, 199, 0.3);
+    0 14px 32px -12px rgba(15,53,104, 0.55),
+    0 2px 8px -2px rgba(15,53,104, 0.3);
 }
 
 /* Ghost variant — text flips to white, blue fill reveals */
@@ -739,7 +753,7 @@ body {
 
 /* Star rating */
 .star-filled {
-  color: #1E40AF;
+  color: #0f3568;
 }
 
 /* ──────────────────────────────────────────────────────────────
@@ -900,7 +914,7 @@ body {
   isolation: isolate;
   animation: luxury-day-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   box-shadow:
-    0 18px 48px -20px rgba(20, 53, 88, 0.35),
+    0 18px 48px -20px rgba(6,24,46, 0.35),
     0 2px 10px -2px rgba(201, 168, 76, 0.18);
 }
 .luxury-day-photo::before {

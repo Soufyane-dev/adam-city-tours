@@ -1,4 +1,6 @@
-import { Star } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { CalendarDays, Globe2, MapPin, Star } from "lucide-react";
 
 type Season = {
   name: string;
@@ -7,14 +9,8 @@ type Season = {
   tempRange: string;
   imageSrc: string;
   imageAlt: string;
-  barClass: string;
-  photoTint: string;
   recommended?: boolean;
 };
-
-/** Agadir bay — daylight / morning mood (no dusk shots). SnapSaga on Unsplash; HTTPS for reliable delivery. */
-const AGADIR_SUMMER_PHOTO =
-  "https://images.unsplash.com/photo-1710092538995-4af0c11a3f3c?auto=format&fit=crop&w=1600&q=85";
 
 /** English copy — matches site base language (`pageLanguage: en`) so Google Translate can localize. */
 const seasons: Season[] = [
@@ -24,10 +20,9 @@ const seasons: Season[] = [
     description:
       "Mild across the south and coast, crisp in the Atlas. Ideal for Marrakech, the dunes, and medina walks without the heat.",
     tempRange: "12° – 22°",
-    imageSrc: "/images/about-group.jpg",
-    imageAlt: "Real Mortours moment — guests and guide together on a Morocco tour",
-    barClass: "bg-gradient-to-r from-sky-500 to-blue-600",
-    photoTint: "from-sky-900/25 to-transparent",
+    imageSrc: "/images/season-winter-atlas-berber-village.png",
+    imageAlt:
+      "Snow-covered Berber village on a mountainside in the High Atlas — Morocco in winter",
   },
   {
     name: "Spring",
@@ -37,79 +32,123 @@ const seasons: Season[] = [
     tempRange: "18° – 28°",
     imageSrc: "/images/ourika-valley-2.png",
     imageAlt: "Ourika Valley in spring — green hills and streams",
-    barClass: "bg-gradient-to-r from-emerald-500 to-teal-600",
-    photoTint: "from-emerald-900/20 to-transparent",
     recommended: true,
   },
   {
     name: "Summer",
     months: "Jun · Jul · Aug",
     description:
-      "Warm inland and in the south. We steer you toward Agadir’s long bay — Atlantic swims, the Corniche, and sea breezes that keep summer nights refreshingly mild.",
+      "Warm inland and in the south — turquoise pools in rocky gorges, Agadir’s long bay for Atlantic swims, and sea breezes that keep summer nights refreshingly mild.",
     tempRange: "22° – 38°",
-    imageSrc: AGADIR_SUMMER_PHOTO,
-    imageAlt: "Agadir, Morocco — main beach and Atlantic bay in bright daylight (SnapSaga / Unsplash)",
-    barClass: "bg-gradient-to-r from-amber-400 to-orange-500",
-    photoTint: "from-slate-900/0 to-transparent",
+    imageSrc: "/images/season-summer-oasis-canyon.png",
+    imageAlt:
+      "Turquoise plunge pool in a red-rock canyon — Morocco summer swim in cool mountain water",
   },
   {
     name: "Autumn",
     months: "Sep · Oct · Nov",
     description:
-      "Golden light, local festivals, and gentle warmth almost everywhere. Superb for Fès, Chefchaouen, and the dunes outside high season.",
+      "Golden light, local festivals, and gentle warmth almost everywhere. Superb for Fès, Aït Benhaddou, Chefchaouen, and the dunes outside high season.",
     tempRange: "20° – 30°",
-    imageSrc: "/images/gallery-fes-arch.png",
-    imageAlt: "Fès — historic architecture and golden light, ideal in autumn",
-    barClass: "bg-gradient-to-r from-orange-500 to-rose-600",
-    photoTint: "from-rose-900/25 to-transparent",
+    imageSrc: "/images/season-autumn-ait-ben-haddou.png",
+    imageAlt:
+      "Aït Benhaddou — UNESCO ksar of rammed-earth towers and palms under a bright Moroccan sky",
   },
 ];
 
-function SeasonCard({ season }: { season: Season }) {
+function SeasonCard({ season, priority }: { season: Season; priority: boolean }) {
   return (
-    <article className="group flex min-h-0 flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#C9A84C]/10 dark:border-white/10 dark:bg-white/[0.04]">
-      <div className="relative isolate aspect-[5/3] min-h-[12rem] w-full shrink-0 overflow-hidden bg-slate-200 dark:bg-slate-800">
-        <img
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[22px] border border-slate-200/80 bg-white shadow-[0_10px_40px_-18px_rgba(6,24,46,0.25)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#0F3568]/50 hover:shadow-[0_24px_60px_-20px_rgba(15,53,104,0.4)] dark:border-white/10 dark:bg-[#12161d] dark:shadow-[0_14px_44px_-18px_rgba(0,0,0,0.55)] dark:hover:border-[#0F3568]/60">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
+        <Image
           src={season.imageSrc}
           alt={season.imageAlt}
-          width={1200}
-          height={720}
-          loading={season.name === "Summer" ? "eager" : "lazy"}
-          decoding="async"
-          referrerPolicy={season.imageSrc.startsWith("http") ? "no-referrer" : undefined}
-          className="absolute inset-0 z-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          priority={priority}
+          
+          {...(!season.imageSrc.startsWith("/") ? { quality: 100 as const } : {})}
+          className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
         />
         <div
-          className={`pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t ${season.photoTint}`}
           aria-hidden
+          className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/35 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         />
+
+        <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#d4b863] to-[#b08f34] px-3 py-1 font-[var(--font-inter)] text-[10px] font-bold uppercase tracking-[0.22em] text-white shadow-[0_6px_18px_-4px_rgba(176,143,52,0.6)]">
+          {season.recommended ? (
+            <svg viewBox="0 0 24 24" className="h-3 w-3" fill="currentColor" aria-hidden>
+              <path d="M12 2l2.6 6.3 6.8.5-5.2 4.5 1.6 6.7L12 16.9 6.2 20l1.6-6.7L2.6 8.8l6.8-.5L12 2z" />
+            </svg>
+          ) : null}
+          {season.recommended ? "Signature" : "Season"}
+        </span>
+
+        <span className="absolute right-4 top-4 inline-flex items-center rounded-full bg-[#1a2b48] px-3 py-1 font-[var(--font-inter)] text-[10px] font-bold uppercase tracking-[0.22em] text-white shadow-[0_6px_18px_-6px_rgba(0,0,0,0.45)] dark:bg-white dark:text-[#1a2b48]">
+          {season.tempRange}
+        </span>
       </div>
-      <div className={`h-1.5 w-full ${season.barClass}`} aria-hidden />
-      <div className="flex flex-1 flex-col p-5 pt-4">
-        <div className="mb-1 flex items-center gap-2">
-          <h3 className="font-[var(--font-playfair)] text-xl font-bold text-slate-900 dark:text-white">
-            {season.name}
-          </h3>
+
+      <div className="flex flex-1 flex-col p-6 pt-5 font-[var(--font-inter)]">
+        <h3 className="mb-1.5 line-clamp-2 font-[var(--font-playfair)] text-[22px] font-bold leading-snug tracking-tight text-[#1a2b48] transition-colors duration-300 group-hover:text-[#0F3568] dark:text-white dark:group-hover:text-[#90B8E4]">
+          {season.name}
           {season.recommended ? (
             <Star
-              className="h-5 w-5 shrink-0 fill-[#C9A84C] text-[#C9A84C]"
+              className="mb-0.5 ml-1.5 inline h-[1.1em] w-[1.1em] align-middle fill-[#C9A84C] text-[#C9A84C]"
               aria-label="Especially recommended time to travel"
             />
           ) : null}
-        </div>
-        <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#2E79C7] dark:text-sky-300/90">
-          {season.months}
+        </h3>
+
+        <p className="mb-5 inline-flex items-start gap-1.5 text-[13px] font-medium leading-snug text-slate-500 dark:text-slate-400">
+          <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#C9A84C]" strokeWidth={1.75} aria-hidden />
+          <span className="line-clamp-2">{season.description}</span>
         </p>
-        <p className="mb-4 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-          {season.description}
-        </p>
-        <p className="font-[var(--font-playfair)] text-lg font-bold text-slate-900 dark:text-white">
-          {season.tempRange}
-          <span className="ml-1 text-xs font-normal text-slate-400 dark:text-slate-500">
-            (typical averages)
+
+        <div className="mb-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-dashed border-slate-200 pt-4 text-[12.5px] text-slate-500 dark:border-white/10 dark:text-slate-400">
+          <span className="inline-flex items-center gap-1.5">
+            <CalendarDays className="h-4 w-4 text-[#C9A84C]" strokeWidth={1.75} aria-hidden />
+            <span>{season.months}</span>
           </span>
-        </p>
+          <span className="inline-flex items-center gap-1.5">
+            <Globe2 className="h-4 w-4 text-[#C9A84C]" strokeWidth={1.75} aria-hidden />
+            <span>Morocco</span>
+          </span>
+        </div>
+
+        <div className="mt-auto">
+          <div className="mb-4">
+            <p className="mb-0.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400 dark:text-slate-500">
+              Typical range
+            </p>
+            <p className="flex items-baseline gap-1 font-[var(--font-playfair)] text-[28px] font-bold tracking-tight text-[#1a2b48] dark:text-white">
+              {season.tempRange}
+              <span className="text-xs font-normal font-[var(--font-inter)] text-slate-400 dark:text-slate-500">
+                avg.
+              </span>
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-2.5">
+            <Link
+              href="/tours"
+              className="luxury-pill-blue inline-flex items-center justify-center rounded-full border border-[#0F3568]/50 bg-white px-3 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#0F3568] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F3568] dark:border-[#0F3568]/60 dark:bg-transparent dark:text-[#90B8E4]"
+            >
+              <span className="relative z-10">Tours</span>
+            </Link>
+            <Link
+              href="/contact"
+              className="luxury-pill-blue is-filled inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#0F3568] to-[#082A52] px-3 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-[0_8px_22px_-8px_rgba(15,53,104,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F3568]"
+            >
+              <span className="relative z-10">Contact</span>
+            </Link>
+          </div>
+        </div>
       </div>
+
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] scale-x-0 bg-gradient-to-r from-transparent via-[#0F3568] to-transparent transition-transform duration-500 group-hover:scale-x-100"
+      />
     </article>
   );
 }
@@ -117,31 +156,34 @@ function SeasonCard({ season }: { season: Season }) {
 export default function SeasonPlanner() {
   return (
     <section
-      className="border-y border-slate-100 bg-[#FAF9F6] py-16 dark:border-white/10 dark:bg-[#14141f]"
+      className="relative overflow-hidden border-y border-slate-200/70 bg-gradient-to-b from-[#FDFBF7] via-white to-[#F7F4EC] py-20 dark:border-white/[0.06] dark:from-[#0b0d12] dark:via-[#0c1016] dark:to-[#0a0c10] sm:py-24"
       aria-labelledby="season-planner-heading"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="relative mx-auto max-w-4xl text-center">
+      <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#C9A84C]/10 blur-3xl dark:bg-[#C9A84C]/[0.08] max-sm:hidden" aria-hidden />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-[#C9A84C]/8 blur-3xl dark:bg-[#C9A84C]/[0.06] max-sm:hidden" aria-hidden />
+
+      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-12">
+        <div className="relative mx-auto max-w-5xl text-center">
           <h2
             id="season-planner-heading"
-            className="title-with-gold-glow mx-auto inline-block max-w-[18ch] bg-gradient-to-r from-slate-900 via-[#C9A84C] via-50% to-slate-900 bg-clip-text text-center font-[var(--font-playfair)] text-[1.75rem] font-semibold leading-[1.12] tracking-[0.04em] text-transparent drop-shadow-sm animate-text-shimmer sm:text-4xl sm:tracking-[0.05em] lg:text-[2.65rem] lg:leading-[1.08] dark:from-white dark:via-[#E8D5A8] dark:via-45% dark:to-white dark:drop-shadow-[0_0_32px_rgba(201,168,76,0.28)]"
+            className="title-with-gold-glow mb-5 bg-gradient-to-r from-slate-900 via-[#C9A84C] to-slate-900 bg-clip-text font-[var(--font-playfair)] text-4xl font-bold tracking-tight text-transparent drop-shadow-sm dark:from-white dark:via-[#C9A84C] dark:to-white sm:text-5xl lg:text-[3.25rem]"
           >
             Seasons of Morocco
           </h2>
-          <p className="mx-auto mt-4 max-w-xl font-[var(--font-playfair)] text-sm font-normal italic tracking-[0.06em] text-slate-500 dark:text-slate-400 sm:text-base">
+          <p className="mx-auto font-[var(--font-playfair)] text-sm font-normal italic tracking-[0.06em] text-slate-500 dark:text-slate-400 sm:text-base">
             Crafted journeys, timed to perfection
           </p>
         </div>
 
         <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-slate-600 dark:text-slate-400">
           A curated overview to help you pick the right window for Morocco with{" "}
-          <span className="notranslate font-semibold text-slate-800 dark:text-slate-200">Mortours</span>
+          <span className="notranslate font-semibold text-slate-800 dark:text-slate-200">Adam City Tours</span>
           : mood, crowds, and typical temperatures — separate from the live weather strip above.
         </p>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-          {seasons.map((season) => (
-            <SeasonCard key={season.name} season={season} />
+        <div className="mt-14 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          {seasons.map((season, idx) => (
+            <SeasonCard key={season.name} season={season} priority={idx < 2} />
           ))}
         </div>
       </div>

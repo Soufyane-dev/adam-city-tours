@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!dest) return { title: "Destination Not Found" };
 
   return {
-    title: `${dest.name} | MorTours Majestic Destinations`,
+    title: `${dest.name} | Adam City Tours — Majestic Destinations`,
     description: dest.shortDescription,
     alternates: { canonical: `/destinations/${resolvedParams.slug}` },
     openGraph: {
-      title: `${dest.name} | Mortours`,
+      title: `${dest.name} | Adam City Tours`,
       description: dest.shortDescription,
       url: `/destinations/${resolvedParams.slug}`,
       images: [{ url: dest.image, alt: dest.name }],

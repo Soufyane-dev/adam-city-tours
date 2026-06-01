@@ -95,17 +95,17 @@ export default function TrustStats() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const }}
-        className="relative isolate w-full min-w-0 max-w-none overflow-hidden rounded-none border-x-0 border-y border-white/55 bg-gradient-to-r from-[#FAF9F6]/90 via-white/[0.35] to-[#E8EEF5]/90 shadow-[0_8px_40px_rgba(0,0,0,0.08),0_1px_0_rgba(255,255,255,0.65)_inset] backdrop-blur-3xl [-webkit-backdrop-filter:blur(40px)] dark:border-white/10 dark:from-[#1A1A2E]/50 dark:via-white/[0.08] dark:to-[#151525]/50 dark:shadow-[0_12px_48px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.08)]"
+        className="relative isolate w-full min-w-0 max-w-none overflow-hidden rounded-none border-x-0 border-y border-white/55 bg-gradient-to-r from-[#FAF9F6]/90 via-white/[0.35] to-[#E8EEF5]/90 shadow-[0_8px_40px_rgba(0,0,0,0.08),0_1px_0_rgba(255,255,255,0.65)_inset] backdrop-blur-3xl [-webkit-backdrop-filter:blur(40px)] dark:border-white/10 dark:from-[#141C2C]/50 dark:via-white/[0.08] dark:to-[#0d1426]/50 dark:shadow-[0_12px_48px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.08)]"
       >
         {/* Reflet verre + halos doux */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-transparent opacity-70 dark:from-white/[0.07] dark:opacity-100" />
         <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]" />
-        <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#2E79C7]/15 blur-[100px]" />
+        <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#0F3568]/15 blur-[100px]" />
         <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[#C9A84C]/15 blur-[80px]" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#C9A84C]/[0.08] via-transparent to-[#2E79C7]/[0.06]" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#C9A84C]/[0.08] via-transparent to-[#0F3568]/[0.06]" />
 
         <motion.div
-          className="relative grid min-w-0 grid-cols-4 gap-px bg-gradient-to-b from-white/25 to-white/10 p-px dark:from-white/[0.08] dark:to-white/[0.03]"
+          className="relative grid min-w-0 grid-cols-2 gap-px bg-gradient-to-b from-white/25 to-white/10 p-px md:grid-cols-4 dark:from-white/[0.08] dark:to-white/[0.03]"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -121,7 +121,12 @@ export default function TrustStats() {
                 variants={iconVariants}
                 className="mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-white/50 bg-white/35 text-[#C9A84C] shadow-[0_4px_16px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-sm transition-all duration-500 [-webkit-backdrop-filter:blur(12px)] group-hover:border-[#C9A84C]/40 group-hover:bg-[#C9A84C]/90 group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#C9A84C]/30 dark:border-white/15 dark:bg-white/[0.08] dark:shadow-none md:mb-5 md:h-14 md:w-14"
               >
-                <stat.icon strokeWidth={1.5} className="h-5 w-5 md:h-6 md:w-6" />
+                <stat.icon
+                  strokeWidth={1.75}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="size-5 shrink-0 md:size-6"
+                />
               </motion.div>
 
               <div className="mb-1.5 flex items-baseline text-lg font-bold tracking-tight text-slate-800 dark:text-white sm:text-2xl md:text-3xl lg:text-[2.35rem] font-[var(--font-playfair)]">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface ContactFormProps {
   compact?: boolean;
@@ -15,6 +15,12 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
     tour: "",
   });
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+
+  useEffect(() => {
+    const q = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
+    if (!q || q.get("tour") !== "airport-transfer") return;
+    setFormData((prev) => (prev.tour ? prev : { ...prev, tour: "airport-transfer" }));
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -80,7 +86,7 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
             type="tel"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="+1 234 567 890"
+            placeholder="+212 665 138 697"
             className={inputClass}
           />
         </div>
@@ -96,6 +102,7 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
             className={`${inputClass} dark:text-white dark:[&>option]:text-black`}
           >
             <option value="">Select a tour...</option>
+            <option value="airport-transfer">Marrakech airport transfer (RAK)</option>
             <option value="marrakech">Imperial Marrakech</option>
             <option value="sahara">Sahara Desert Adventure</option>
             <option value="chefchaouen">Blue City Chefchaouen</option>
@@ -137,12 +144,12 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
           id="contact-submit-btn"
           type="submit"
           disabled={status === "success"}
-          className="flex-1 bg-[#2E79C7] hover:bg-[#2261A1] text-white font-semibold tracking-wider uppercase text-sm px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#2E79C7]/30 hover:-translate-y-px disabled:opacity-60"
+          className="flex-1 bg-[#0F3568] hover:bg-[#082A52] text-white font-semibold tracking-wider uppercase text-sm px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#0F3568]/30 hover:-translate-y-px disabled:opacity-60"
         >
           Send Message
         </button>
         <a
-          href="https://wa.me/212600000000?text=Hello%20Mortours!%20I%27m%20interested%20in%20booking%20a%20tour."
+          href="https://wa.me/212667313222?text=Hello%20Adam%20City%20Tours!%20I%27m%20interested%20in%20booking%20a%20tour."
           target="_blank"
           rel="noopener noreferrer"
           id="whatsapp-btn"

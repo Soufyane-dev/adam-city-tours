@@ -121,15 +121,17 @@ interface CardProps {
 
 function TourPackageCard({ tour, route, discount, priority = false }: CardProps) {
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-[22px] border border-slate-200/80 bg-white shadow-[0_10px_40px_-18px_rgba(20,53,88,0.25)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#2E79C7]/50 hover:shadow-[0_24px_60px_-20px_rgba(46,121,199,0.4)] dark:border-white/10 dark:bg-[#12161d] dark:shadow-[0_14px_44px_-18px_rgba(0,0,0,0.55)] dark:hover:border-[#2E79C7]/60">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[22px] border border-slate-200/80 bg-white shadow-[0_10px_40px_-18px_rgba(6,24,46,0.25)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#0F3568]/50 hover:shadow-[0_24px_60px_-20px_rgba(15,53,104,0.4)] dark:border-white/10 dark:bg-[#12161d] dark:shadow-[0_14px_44px_-18px_rgba(0,0,0,0.55)] dark:hover:border-[#0F3568]/60">
       {/* Image */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
         <Image
           src={tour.image}
           alt={tour.title}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
           priority={priority}
+          
+          {...(!tour.image.startsWith("/") ? { quality: 100 as const } : {})}
           className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
         />
         {/* Soft bottom gradient for legibility of badges */}
@@ -156,7 +158,7 @@ function TourPackageCard({ tour, route, discount, priority = false }: CardProps)
 
       {/* Body */}
       <div className="flex flex-1 flex-col p-6 pt-5 font-[var(--font-inter)]">
-        <h3 className="mb-1.5 line-clamp-2 font-[var(--font-playfair)] text-[22px] font-bold leading-snug tracking-tight text-[#1a2b48] transition-colors duration-300 group-hover:text-[#2E79C7] dark:text-white dark:group-hover:text-[#7ab2e8]">
+        <h3 className="mb-1.5 line-clamp-2 font-[var(--font-playfair)] text-[22px] font-bold leading-snug tracking-tight text-[#1a2b48] transition-colors duration-300 group-hover:text-[#0F3568] dark:text-white dark:group-hover:text-[#90B8E4]">
           {tour.title}
         </h3>
 
@@ -198,14 +200,14 @@ function TourPackageCard({ tour, route, discount, priority = false }: CardProps)
             <Link
               href={`/tours/${tour.id}`}
               aria-label={`See details for ${tour.title}`}
-              className="luxury-pill-blue inline-flex items-center justify-center rounded-full border border-[#2E79C7]/50 bg-white px-3 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#2E79C7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2E79C7] dark:border-[#2E79C7]/60 dark:bg-transparent dark:text-[#7ab2e8]"
+              className="luxury-pill-blue inline-flex items-center justify-center rounded-full border border-[#0F3568]/50 bg-white px-3 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#0F3568] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F3568] dark:border-[#0F3568]/60 dark:bg-transparent dark:text-[#90B8E4]"
             >
               <span className="relative z-10">Details</span>
             </Link>
             <Link
               href={`/contact?tour=${tour.id}`}
               aria-label={`Book ${tour.title}`}
-              className="luxury-pill-blue is-filled inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#2E79C7] to-[#2261A1] px-3 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-[0_8px_22px_-8px_rgba(46,121,199,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2E79C7]"
+              className="luxury-pill-blue is-filled inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#0F3568] to-[#082A52] px-3 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-[0_8px_22px_-8px_rgba(15,53,104,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F3568]"
             >
               <span className="relative z-10">Book Now</span>
             </Link>
@@ -216,7 +218,7 @@ function TourPackageCard({ tour, route, discount, priority = false }: CardProps)
       {/* Chefchaouen-blue accent on hover */}
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] scale-x-0 bg-gradient-to-r from-transparent via-[#2E79C7] to-transparent transition-transform duration-500 group-hover:scale-x-100"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] scale-x-0 bg-gradient-to-r from-transparent via-[#0F3568] to-transparent transition-transform duration-500 group-hover:scale-x-100"
       />
     </article>
   );

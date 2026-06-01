@@ -28,8 +28,8 @@ export const tours: Tour[] = [
     shortDescription:
       "The ultimate grand tour of Morocco: imperial cities, Atlantic surf, two Sahara camps, Atlas crossings, and the Blue Pearl.",
     fullDescription:
-      "Our flagship twenty-day journey is the most complete way to discover Morocco. From the storytellers of Jamaa El Fna to the windswept ramparts of Essaouira, the surf breaks of Taghazout, the saffron fields of Taliouine, and the immense dunes of Erg Chegaga and Erg Chebbi — this itinerary threads every landscape and culture that makes Morocco unforgettable. You'll cross the High Atlas cedar forests, sleep under desert stars in luxury camps, wander the medieval medina of Fes with an expert guide, walk the Roman ruins of Volubilis, lose yourself in the blue alleys of Chefchaouen, and finish at the immense Hassan II Mosque in Casablanca. Travel in comfort with private transfers, handpicked riads and hotels, and carefully paced days — the signature Mortours experience, start to finish.",
-    price: 2899,
+      "Our flagship twenty-day journey is the most complete way to discover Morocco. From the storytellers of Jamaa El Fna to the windswept ramparts of Essaouira, the surf breaks of Taghazout, the saffron fields of Taliouine, and the immense dunes of Erg Chegaga and Erg Chebbi — this itinerary threads every landscape and culture that makes Morocco unforgettable. You'll cross the High Atlas cedar forests, sleep under desert stars in luxury camps, wander the medieval medina of Fes with an expert guide, walk the Roman ruins of Volubilis, lose yourself in the blue alleys of Chefchaouen, and finish at the immense Hassan II Mosque in Casablanca. Travel in comfort with private transfers, handpicked riads and hotels, and carefully paced days — the signature Adam City Tours experience, start to finish.",
+    price: 990,
     duration: "20 Days",
     groupSize: "2-8",
     difficulty: "Moderate",
@@ -185,7 +185,7 @@ export const tours: Tour[] = [
       "A loop from Casablanca through Rabat, Chefchaouen, Fes, the Sahara, Marrakech and the Atlantic coast.",
     fullDescription:
       "Ten carefully paced days that begin and end in Casablanca, threading the country's imperial heart with its bluest and wildest corners. Arrive at the great Hassan II Mosque, sleep in the Blue Pearl of Chefchaouen, walk the Roman ruins of Volubilis and the monumental gate of Bab Mansour in Meknes, lose yourself in the medieval medina of Fes, ride camels across Erg Chebbi at sunset, wander the Dades Valley and the UNESCO-listed Aït Benhaddou, and finish on the windswept Atlantic ramparts of Essaouira before looping back to Casablanca. Private driver-guide, hand-picked riads and a balanced pace throughout.",
-    price: 1599,
+    price: 590,
     duration: "10 Days",
     groupSize: "2-8",
     difficulty: "Moderate",
@@ -280,13 +280,13 @@ export const tours: Tour[] = [
       "High Atlas, ancient caravan routes, Aït Benhaddou, Ouzina hidden dunes, and a camel sunset at Erg Chebbi.",
     fullDescription:
       "A five-day immersion into the very soul of southern Morocco — from Marrakech across the High Atlas via the Tichka Pass (2,260 m), along ancient caravan routes through the Draa Valley, into the off-the-beaten-track Ouzina desert, and onward to the golden dunes of Erg Chebbi. Along the way you'll discover the UNESCO-listed kasbah of Aït Benhaddou (famous from Gladiator and Lawrence of Arabia), share mint tea with a family in the 14-household village of Ouzina, hear traditional Gnawa music in Khamlia, ride camels over the Erg Chebbi dunes to a Bedouin-style camp for a star-lit dinner, and explore the dramatic 300 m cliffs of Todra Gorge and the rose-scented Dades Valley. A genuine, cultural desert adventure — not a rush.",
-    price: 520,
+    price: 439,
     duration: "5 Days",
     groupSize: "2-8",
     difficulty: "Moderate",
     image: "/images/tour-desert-camp.png",
     gallery: [
-      "/images/hero-desert.png",
+      "/images/camel-caravan-sunset.png",
       "/images/ait-benhadou-1.png",
       "/images/ait-benhadou-2.png",
       "/images/ait-benhadou-3.png",
@@ -344,15 +344,15 @@ export const tours: Tour[] = [
       "Slow-paced retreat through the Dades Valley, Erg Chebbi dunes, and the hidden oasis of Agdz in the Draa Valley.",
     fullDescription:
       "A relaxed six-day Sahara retreat designed for travelers who want to savor Morocco rather than rush it. From Marrakech, cross the High Atlas via the famous Tizi n'Tichka pass and pause at the UNESCO-listed Kasbah Aït Ben Haddou, then settle in for two nights in the fertile Dades Valley — home to dramatic rock formations, the Monkey Fingers Canyon, and quiet Berber villages. Camel trek into the Erg Chebbi dunes at Merzouga for a night in a luxury desert camp under a star-dense sky, spend a day at leisure among the dunes meeting nomad families, then wind back via Alnif to the peaceful palm-grove oasis of Agdz in the Draa Valley. Return to Marrakech through Ouarzazate, 'the Hollywood of Morocco'.",
-    price: 730,
+    price: 619,
     duration: "6 Days",
     groupSize: "2-8",
     difficulty: "Easy",
-    image: "/images/hero-desert.png",
+    image: "/images/camel-caravan-sunset.png",
     gallery: [
       "/images/ait-benhadou-1.png",
       "/images/ait-benhadou-2.png",
-      "/images/hero-desert.png",
+      "/images/camel-caravan-sunset.png",
       "/images/tour-desert-camp.png",
       "/images/sahara-camp-drums-1.png",
       "/images/ourika-valley-1.png",
@@ -412,14 +412,14 @@ export const tours: Tour[] = [
       "A fast, scenic desert crossing from Fes to Marrakech via the Cedar Forest, Erg Chebbi, Todra Gorge and Aït Benhaddou.",
     fullDescription:
       "A well-paced three-day Sahara crossing that links the two imperial capitals. From Fes, climb into the Middle Atlas through the alpine town of Ifrane ('Little Switzerland'), wander the cedar forests around Azrou where Barbary macaques roam, and lunch in Midelt before descending through the Ziz Valley and its fortified ksars to Erfoud — the gateway to the desert. Camel-trek over the Erg Chebbi dunes at sunset to a luxury Berber camp for dinner under the stars. Wake for the sunrise, then journey west via the Todra Gorge, the Dades Valley, the Valley of Roses, the palm groves of Skoura, and the UNESCO-listed Aït Benhaddou before crossing the Tizi n'Tichka pass into the energetic streets of Marrakech.",
-    price: 250,
+    price: 210,
     duration: "3 Days",
     groupSize: "2-8",
     difficulty: "Moderate",
     image: "/images/fes-grand-portal.png",
     gallery: [
       "/images/fes-grand-portal.png",
-      "/images/hero-desert.png",
+      "/images/camel-caravan-sunset.png",
       "/images/tour-desert-camp.png",
       "/images/sahara-camp-drums-1.png",
       "/images/ait-benhadou-1.png",
@@ -462,7 +462,7 @@ export const tours: Tour[] = [
       "Discover the vibrant souks, stunning palaces, and rich culture of the Red City.",
     fullDescription:
       "Immerse yourself in the magic of Marrakech, Morocco's most enchanting city. Wander through the labyrinthine souks filled with aromatic spices, handcrafted leather goods, and shimmering lanterns. Visit the iconic Jemaa el-Fnaa square, explore the stunning Bahia Palace, and find peace in the Majorelle Garden. This tour offers an authentic glimpse into the heart of Moroccan culture, with expert local guides who bring centuries of history to life.",
-    price: 299,
+    price: 209,
     duration: "3 Days",
     groupSize: "2-12",
     difficulty: "Easy",
@@ -507,14 +507,14 @@ export const tours: Tour[] = [
       "Experience the magic of the Sahara with camel treks and luxury desert camping.",
     fullDescription:
       "Embark on an unforgettable journey into the heart of the Sahara Desert. Ride camels across towering golden dunes as the sun paints the sky in breathtaking hues. Spend your nights in a luxury desert camp under a canopy of stars, enjoying traditional Berber music and cuisine around a crackling campfire. This is the ultimate Moroccan adventure, combining raw natural beauty with comfort and authentic cultural experiences.",
-    price: 499,
+    price: 419,
     duration: "4 Days",
     groupSize: "2-10",
     difficulty: "Moderate",
     image: "/images/tour-desert-camp.png",
     gallery: [
       "/images/tour-desert-camp.png",
-      "/images/hero-desert.png",
+      "/images/camel-caravan-sunset.png",
       "/images/tour-atlas.png",
     ],
     program: [
@@ -558,7 +558,7 @@ export const tours: Tour[] = [
       "Wander the dreamy blue streets of Morocco's most photogenic city.",
     fullDescription:
       "Discover the mesmerizing blue-washed streets of Chefchaouen, nestled in the Rif Mountains. This enchanting town, with its striking blue buildings set against a backdrop of lush mountains, is one of Morocco's most magical destinations. Explore artisan workshops, hike to the Spanish Mosque for panoramic views, and sample the unique cuisine influenced by both Moroccan and Andalusian traditions. A photographer's paradise and a traveler's dream.",
-    price: 349,
+    price: 295,
     duration: "3 Days",
     groupSize: "2-8",
     difficulty: "Easy",
@@ -603,14 +603,14 @@ export const tours: Tour[] = [
       "Trek through breathtaking mountain landscapes and visit authentic Berber villages.",
     fullDescription:
       "Challenge yourself with an epic trek through the majestic High Atlas Mountains, home to North Africa's highest peak, Mount Toubkal. Journey through terraced valleys, alpine meadows, and remote Berber villages where time seems to stand still. Experience the legendary hospitality of mountain communities, savor traditional meals prepared by local families, and witness landscapes that will take your breath away at every turn.",
-    price: 599,
+    price: 419,
     duration: "5 Days",
     groupSize: "4-12",
     difficulty: "Challenging",
     image: "/images/tour-atlas.png",
     gallery: [
       "/images/tour-atlas.png",
-      "/images/hero-desert.png",
+      "/images/camel-caravan-sunset.png",
       "/images/tour-marrakech.png",
     ],
     program: [
@@ -660,7 +660,7 @@ export const tours: Tour[] = [
       "Relax in the charming coastal town famous for its art, music, and fresh seafood.",
     fullDescription:
       "Escape to the windswept charm of Essaouira, Morocco's most beloved coastal city. This UNESCO-listed port town captivates visitors with its stunning ramparts, vibrant art galleries, and legendary surf breaks. Stroll through the bustling fishing port, explore the historic medina filled with local artists and craftsmen, and indulge in the freshest seafood at the harbor. Essaouira offers the perfect blend of culture, relaxation, and coastal beauty.",
-    price: 249,
+    price: 209,
     duration: "2 Days",
     groupSize: "2-15",
     difficulty: "Easy",
@@ -699,7 +699,7 @@ export const tours: Tour[] = [
       "The ultimate Morocco experience covering imperial cities, desert, and coast.",
     fullDescription:
       "Experience the very best of Morocco on this comprehensive grand tour. Flexible start options include Casablanca or Marrakech. From the bustling streets of Marrakech to the ancient medina of Fes, from the golden dunes of the Sahara to the blue streets of Chefchaouen, this tour covers all of Morocco's iconic destinations. Travel in comfort with private transfers, stay in handpicked luxury riads, and enjoy exclusive experiences that reveal the true soul of this magnificent country.",
-    price: 1299,
+    price: 490,
     duration: "10 Days",
     groupSize: "2-8",
     difficulty: "Moderate",
@@ -769,6 +769,956 @@ export const tours: Tour[] = [
       "Chefchaouen blue streets",
       "Luxury riad accommodations",
       "Private transfers throughout",
+    ],
+  },
+  // ── Tours from PDF ──────────────────────────────────────────────────────────
+  {
+    id: "marrakech-ouarzazate-2-days",
+    title: "Marrakech to Ouarzazate & Aït Benhaddou — 2 Days",
+    shortDescription:
+      "Cross the High Atlas via Tizi Ntichka, visit the UNESCO kasbah of Aït Benhaddou, and spend a night in the cinematic city of Ouarzazate.",
+    fullDescription:
+      "A two-day escape from Marrakech into the dramatic landscapes of southern Morocco. Depart at 8:00 AM and climb over the Tizi n'Tichka pass (2,260 m), pausing at the kasbah of Telouet before arriving at the UNESCO World Heritage site of Aït Benhaddou — the most famous kasbah in Morocco, setting for Gladiator, Lawrence of Arabia and Game of Thrones. Continue to Ouarzazate, nicknamed the 'Hollywood of Morocco', for dinner and an overnight stay. On day two, explore the Taourirt Kasbah and the Atlas Film Studios, then drive through the scenic Fint Oasis before returning to Marrakech.",
+    price: 149,
+    duration: "2 Days",
+    groupSize: "2-8",
+    difficulty: "Easy",
+    image: "/images/ait-benhadou-1.png",
+    gallery: [
+      "/images/ait-benhadou-1.png",
+      "/images/ait-benhadou-2.png",
+      "/images/ait-benhadou-3.png",
+      "/images/ait-benhadou-4.png",
+      "/images/season-autumn-ait-ben-haddou.png",
+      "/images/responsible-travel-dades-gorges-guests.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Marrakech → Tizi n'Tichka → Aït Benhaddou → Ouarzazate",
+        description:
+          "Depart Marrakech at 8:00 AM through the High Atlas via the Tizi-n-Tichka pass (2,260 m). Stop at the Telouet Kasbah, then visit the UNESCO World Heritage site of Aït Benhaddou — the most iconic kasbah in Morocco, featured in dozens of Hollywood productions. Continue to Ouarzazate for dinner and overnight.",
+      },
+      {
+        day: 2,
+        title: "Ouarzazate → Taourirt Kasbah → Fint Oasis → Marrakech",
+        description:
+          "After breakfast, visit the Taourirt Kasbah and the Atlas Film Studios in Ouarzazate. Drive through the beautiful Fint Oasis, a hidden gem nestled between rocky mountains. Lunch on the road, then return to Marrakech.",
+      },
+    ],
+    highlights: [
+      "Tizi n'Tichka High Atlas pass (2,260 m)",
+      "Telouet Kasbah visit",
+      "UNESCO Aït Benhaddou — Hollywood's favourite kasbah",
+      "Ouarzazate film studios & Taourirt Kasbah",
+      "Fint Oasis scenic drive",
+    ],
+  },
+  {
+    id: "marrakech-merzouga-3-days",
+    title: "Marrakech to Merzouga Desert — 3 Days",
+    shortDescription:
+      "Three days through the Atlas, Dades Valley, Todra Gorge, and the legendary Erg Chebbi dunes — with a night in a desert camp.",
+    fullDescription:
+      "A classic three-day desert tour from Marrakech to the golden dunes of Merzouga. The first day crosses the High Atlas to the UNESCO kasbah of Aït Benhaddou and on to the Dades Valley. Day two takes you through the towering Todra Gorge and across the desert plains to Erg Chebbi, where camels carry you over the dunes to a traditional Berber camp under the stars. On the final day, ride back at sunrise and return to Marrakech via the Draa Valley.",
+    price: 219,
+    duration: "3 Days",
+    groupSize: "2-8",
+    difficulty: "Easy",
+    image: "/images/camel-caravan-sunset.png",
+    gallery: [
+      "/images/camel-caravan-sunset.png",
+      "/images/dest-merzouga.png",
+      "/images/gallery-sahara-camel-caravan.png",
+      "/images/sahara-camp-drums-1.png",
+      "/images/gallery-sahara-camels-rainbow.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Marrakech → Aït Benhaddou → Dades Valley",
+        description:
+          "Pick-up at 8:00 AM. Cross the High Atlas and visit the UNESCO kasbah of Aït Benhaddou. Continue through Ouarzazate, past the Skoura palm grove and Rose Valley to the Dades Valley. Dinner and overnight in a hotel/riad.",
+      },
+      {
+        day: 2,
+        title: "Dades → Todra Gorge → Erg Chebbi Desert Camp",
+        description:
+          "After breakfast, drive through the stunning Todra Gorges (300 m canyon walls). Continue via Erfoud to Merzouga. Mount your camel and trek over the Erg Chebbi dunes to the Berber camp. Sunset from the dunes, dinner by the fire, and a night under a sky full of stars.",
+      },
+      {
+        day: 3,
+        title: "Sunrise → Draa Valley → Marrakech",
+        description:
+          "Wake before dawn to watch the sunrise over the dunes. Camel ride back, then drive through the Draa Valley via Rissani, Nkob, Tamnougalt, and Ouarzazate for a final lunch before the road home over the Atlas to Marrakech.",
+      },
+    ],
+    highlights: [
+      "UNESCO Aït Benhaddou kasbah",
+      "Todra Gorge — 300 m canyon walls",
+      "Sunset camel trek on Erg Chebbi",
+      "Night in a traditional desert camp",
+      "Sunrise over the Sahara dunes",
+    ],
+  },
+  {
+    id: "marrakech-fes-desert-3-days",
+    title: "Marrakech to Fes via Desert — 3 Days",
+    shortDescription:
+      "Link Morocco's two imperial cities in three days: High Atlas, Erg Chebbi dunes, Todra Gorge, and a scenic drive through the Middle Atlas to Fes.",
+    fullDescription:
+      "A well-paced three-day desert crossing connecting Marrakech and Fes. Depart through the High Atlas to Aït Benhaddou, then head to the Dades Valley for the first night. Day two crosses the Todra Gorge and Erfoud to the Erg Chebbi dunes, where camels take you to a luxury desert camp for dinner under the stars. On day three, drive north through the Ziz Valley, Midelt, the cedar forest at Azrou (Barbary macaques), and the Alpine town of Ifrane before dropping you in Fes.",
+    price: 235,
+    duration: "3 Days",
+    groupSize: "2-8",
+    difficulty: "Moderate",
+    image: "/images/dest-merzouga.png",
+    gallery: [
+      "/images/dest-merzouga.png",
+      "/images/human-first-guest-guide-sahara-camels.png",
+      "/images/fes-grand-portal.png",
+      "/images/gallery-fes-arch.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Marrakech → Aït Benhaddou → Boumaln Dades",
+        description:
+          "Depart Marrakech at 8:00 AM over the Tizi-Ntichka pass. Visit the UNESCO kasbah of Aït Benhaddou, then continue through Ouarzazate and the Valley of Roses to the Dades Gorges. Dinner and overnight in a local hotel/riad.",
+      },
+      {
+        day: 2,
+        title: "Dades → Todra Gorge → Erfoud → Erg Chebbi Desert Camp",
+        description:
+          "After breakfast, drive through Tinghir and walk in the Todra Gorge. Continue to Erfoud and on to Merzouga where camels await to carry you over the dunes to the desert camp. Enjoy the sunset, a traditional dinner, and Berber music under the stars.",
+      },
+      {
+        day: 3,
+        title: "Desert Camp → Ziz Valley → Cedar Forest → Fes",
+        description:
+          "Early morning camel ride back at sunrise. Drive north via the Ziz Valley panorama, Midelt (capital of apples), the cedar forest of Azrou, and the charming Alpine town of Ifrane. Arrive in Fes in the evening.",
+      },
+    ],
+    highlights: [
+      "UNESCO Aït Benhaddou & Dades Gorges",
+      "Todra Gorge canyon walk",
+      "Sunset camel trek to desert camp",
+      "Ziz Valley palm grove panorama",
+      "Barbary macaques in Azrou cedar forest",
+      "Ifrane 'Little Switzerland of Morocco'",
+    ],
+  },
+  {
+    id: "marrakech-merzouga-4-days",
+    title: "Marrakech to Merzouga Desert — 4 Days",
+    shortDescription:
+      "Four days into the heart of the Moroccan south: Atlas Mountains, Aït Benhaddou, Valley of Roses, Todra Gorge, and two nights around the Erg Chebbi dunes.",
+    fullDescription:
+      "A four-day private tour that immerses you in the best of southern Morocco. From Marrakech, cross the High Atlas to Aït Benhaddou and Ouarzazate, then follow the Valley of Roses and Dades Valley for the first night. Day two takes you through Todra Gorge and the desert plains to Erg Chebbi, where a camel trek leads to a Berber camp under the stars. Day three is a full desert day — nomad families, Gnawa music in Khamlia, and more dune time. Day four loops back via the Draa Valley and Ouarzazate Studios before returning to Marrakech.",
+    price: 329,
+    duration: "4 Days",
+    groupSize: "2-8",
+    difficulty: "Moderate",
+    image: "/images/tour-desert-camp.png",
+    gallery: [
+      "/images/tour-desert-camp.png",
+      "/images/gallery-sahara-camel-caravan.png",
+      "/images/human-first-guest-guide-sahara-camels.png",
+      "/images/ourika-valley-1.png",
+      "/images/season-winter-atlas-berber-village.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Marrakech → Aït Benhaddou → Ouarzazate → Dades Valley",
+        description:
+          "Depart at 8:00 AM over the Tizi n'Tichka pass. Visit the UNESCO kasbah of Aït Benhaddou and Ouarzazate Studios, then continue to the Dades Valley through the Valley of Roses. Overnight in a local hotel/riad.",
+      },
+      {
+        day: 2,
+        title: "Dades → Todra Gorge → Erg Chebbi Desert Camp",
+        description:
+          "After breakfast, drive through Tinghir and visit the impressive Todra Gorge. Continue via Erfoud to Merzouga. Camel trek over the Erg Chebbi dunes to the desert camp. Sunset, traditional dinner, and Berber music around the fire.",
+      },
+      {
+        day: 3,
+        title: "Merzouga — Full Desert Day",
+        description:
+          "After the sunrise camel ride back, spend the day exploring: meet nomad families, visit the Khamlia village for Gnawa music, and explore the nearby wild oasis. Overnight in a hotel/riad in Merzouga.",
+      },
+      {
+        day: 4,
+        title: "Merzouga → Draa Valley → Ouarzazate Studios → Marrakech",
+        description:
+          "Return via Rissani, Alnif, and the scenic Draa Valley. Stop at the Ouarzazate film studios, then cross the High Atlas back to Marrakech.",
+      },
+    ],
+    highlights: [
+      "Tizi n'Tichka pass & Aït Benhaddou UNESCO site",
+      "Ouarzazate Studios — 'Hollywood of Africa'",
+      "Todra Gorge & Valley of Roses",
+      "Sunset camel trek to Erg Chebbi desert camp",
+      "Gnawa music in Khamlia village",
+      "Full desert day with nomad families",
+    ],
+  },
+  {
+    id: "marrakech-fes-merzouga-4-days",
+    title: "Marrakech to Fes via Merzouga — 4 Days",
+    shortDescription:
+      "Four days linking Marrakech and Fes through the Sahara: Aït Benhaddou, Dades Gorges, Todra, camel trek at Erg Chebbi, and the scenic Ziz Valley.",
+    fullDescription:
+      "A four-day/three-night itinerary that connects Morocco's two imperial cities through the best of the south. Travel from Marrakech over the High Atlas to Aït Benhaddou, spend the first night in the Dades Gorges, explore the Todra Gorge and reach the Sahara on day two with a camel trek to a luxury desert camp. Day three takes you around the Merzouga region — nomad families, Gnawa music, and the wild Oasis of Hassi Labied. On the final day, drive north via the Ziz Valley, Middle Atlas, and Ifrane to arrive in Fes.",
+    price: 355,
+    duration: "4 Days",
+    groupSize: "2-8",
+    difficulty: "Moderate",
+    image: "/images/dest-merzouga.png",
+    gallery: [
+      "/images/gallery-sahara-camels-rainbow.png",
+      "/images/sahara-camp-drums-1.png",
+      "/images/fes-tannery-cityscape.png",
+      "/images/fes-architecture-1.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Marrakech → Aït Benhaddou → Boumaln Dades",
+        description:
+          "Depart at 8:00 AM, cross the High Atlas, visit Aït Benhaddou (UNESCO) and the Taourirt Kasbah in Ouarzazate. Pass through the Skoura palm grove and Valley of Roses to the Dades Valley. Dinner and overnight.",
+      },
+      {
+        day: 2,
+        title: "Dades → Todra Gorge → Erg Chebbi Desert Camp",
+        description:
+          "Morning through the Todra Gorge. Continue via Tinjdad and Erfoud to the Erg Chebbi dunes. Board your camel for the sunset trek to a luxury desert camp with dinner and Berber music under the stars.",
+      },
+      {
+        day: 3,
+        title: "Merzouga — Desert Exploration",
+        description:
+          "Visit the village of Khamlia (Gnawa music), meet nomad families in Berber tents, explore the wild Oasis of Hassi Labied. Dinner and overnight in Merzouga hotel/riad.",
+      },
+      {
+        day: 4,
+        title: "Merzouga → Ziz Valley → Ifrane → Fes",
+        description:
+          "Drive north via Erfoud, along the palm-lined Ziz Valley to Errachidia. Stop in Midelt, then Azrou's cedar forest (Barbary macaques). Visit Ifrane and arrive in Fes by evening.",
+      },
+    ],
+    highlights: [
+      "UNESCO Aït Benhaddou & Dades Gorges",
+      "Todra Gorge canyon",
+      "Sunset camel trek to Erg Chebbi luxury camp",
+      "Khamlia Gnawa music & nomad families",
+      "Ziz Valley panorama & Barbary macaques",
+      "Ifrane — Morocco's 'Little Switzerland'",
+    ],
+  },
+  {
+    id: "marrakech-fes-sahara-5-days",
+    title: "Marrakech to Fes via Sahara — 5 Days",
+    shortDescription:
+      "Five days from Marrakech to Fes: Aït Benhaddou, Ouarzazate, Dades Gorges, Todra, Erg Chebbi camel trek, desert exploration, and the full Fes medina.",
+    fullDescription:
+      "A five-day journey from Morocco's red city to its cultural capital, taking the long and scenic desert route. Cross the High Atlas to Aït Benhaddou, sleep in the Dades Gorges, walk the Todra canyon, ride camels to a desert camp at Erg Chebbi, spend a full day exploring the Merzouga region with nomad families and Gnawa musicians, then drive north through the Middle Atlas — cedar forests and Barbary macaques at Azrou, the charming Alpine town of Ifrane — arriving in Fes for a full guided day of the medina.",
+    price: 420,
+    duration: "5 Days",
+    groupSize: "2-8",
+    difficulty: "Moderate",
+    image: "/images/fes-grand-portal.png",
+    gallery: [
+      "/images/fes-grand-portal.png",
+      "/images/dest-fes.png",
+      "/images/gallery-sahara-camels-rainbow.png",
+      "/images/authentic-tea-guests-berber-countryside.png",
+      "/images/fes-architecture-2.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Marrakech → Aït Benhaddou → Ouarzazate",
+        description:
+          "Depart at 8:00 AM, cross the Tizi-Ntichka pass through the High Atlas with panoramic stops. Visit the UNESCO kasbah of Aït Benhaddou and the Ouarzazate film studios. Overnight in Ouarzazate.",
+      },
+      {
+        day: 2,
+        title: "Ouarzazate → Skoura → Roses Valley → Dades → Todra → Merzouga",
+        description:
+          "Drive through the Skoura palm grove, Kasbah Amridil, the Valley of Roses, Dades Valley, and Todra Gorge. Continue east to Merzouga. Overnight in hotel/riad.",
+      },
+      {
+        day: 3,
+        title: "Merzouga → Erg Chebbi Camel Trek → Desert Camp",
+        description:
+          "After breakfast, take a 4×4 tour of the dunes then mount camels for the legendary sunset trek to a desert camp. Berber music, dinner, and millions of stars overhead.",
+      },
+      {
+        day: 4,
+        title: "Desert → Errachidia → Midelt → Azrou → Ifrane → Fes",
+        description:
+          "Early morning sunrise at the camp. Drive north via the Ziz Valley, Midelt, Azrou cedar forest (Barbary macaques), and Ifrane. Arrive in Fes in the evening.",
+      },
+      {
+        day: 5,
+        title: "Fes — Full Medina Tour",
+        description:
+          "Full day guided tour of Fes: the Royal Palace, the Mellah, the ancient tanneries, the medersas, Al-Qarawiyyin University, and the labyrinthine artisan souks. Free afternoon to explore independently.",
+      },
+    ],
+    highlights: [
+      "Tizi-Ntichka Atlas pass & Aït Benhaddou",
+      "Ouarzazate film studios",
+      "Dades Gorges, Valley of Roses & Todra Gorge",
+      "Sunset camel trek at Erg Chebbi",
+      "Cedar forest macaques & Ifrane",
+      "Full guided day in the medieval Fes medina",
+    ],
+  },
+  {
+    id: "marrakech-merzouga-5-days",
+    title: "Marrakech to Merzouga & Back — 5 Days",
+    shortDescription:
+      "Five days of southern Morocco: Atlas, Aït Benhaddou, Dades Valley, Todra Gorge, two nights around Erg Chebbi, and the return via Draa Valley.",
+    fullDescription:
+      "A five-day round trip from Marrakech that covers the entire scenic south. Cross the High Atlas and visit Aït Benhaddou before reaching the Dades Valley for the first night. Day two brings you to the Todra Gorge and the vast Erg Chebbi dunes at sunset, where you'll sleep in a luxury desert camp. Day three is devoted to the Merzouga region — nomads, Gnawa music, oases, and more dunes. On day four, take the ancient Draa Valley route to Ouarzazate. Day five: Ouarzazate Studios, the Telouet Kasbah, and the high mountain road back to Marrakech.",
+    price: 415,
+    duration: "5 Days",
+    groupSize: "2-8",
+    difficulty: "Moderate",
+    image: "/images/camel-caravan-sunset.png",
+    gallery: [
+      "/images/camel-caravan-sunset.png",
+      "/images/ourika-valley-2.png",
+      "/images/human-first-guests-guide-atlas-road.png",
+      "/images/luxury-riad-lounge-guests-palm-view.png",
+      "/images/gallery-marrakech-atlas-view.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Marrakech → Aït Benhaddou → Ouarzazate → Dades Valley",
+        description:
+          "Depart at 8:00 AM over the Tizi n'Tichka pass. Visit the argan oil cooperative, Aït Benhaddou (UNESCO), and Ouarzazate. Continue through the Skoura palm grove and Valley of Roses to the Dades Valley. Dinner included.",
+      },
+      {
+        day: 2,
+        title: "Dades → Todra Gorge → Erg Chebbi Desert Camp",
+        description:
+          "After breakfast, cross the Todra Gorge. Continue to the Erg Chebbi dunes. Camel trek at sunset to the desert camp. Dinner and Berber music under the stars.",
+      },
+      {
+        day: 3,
+        title: "Merzouga — Nomads, Khamlia & Hassi Labied Oasis",
+        description:
+          "Full day exploring the Merzouga region by 4×4: an old eyeliner mine, nomad families in hand-woven tents, Khamlia village (Gnawa music), and the wild Oasis of Hassi Labied. Overnight in a hotel/riad.",
+      },
+      {
+        day: 4,
+        title: "Merzouga → Draa Valley → Anti-Atlas → Ouarzazate",
+        description:
+          "Drive back via the Draa Valley and Anti-Atlas mountains to Ouarzazate. Overnight in Ouarzazate.",
+      },
+      {
+        day: 5,
+        title: "Ouarzazate → Telouet Kasbah → Tizi n'Tichka → Marrakech",
+        description:
+          "Visit the Taourirt Kasbah and Atlas Studios in Ouarzazate. Drive via the Ounila Valley, the historic Telouet Kasbah, and the Tizi n'Tichka pass back to Marrakech.",
+      },
+    ],
+    highlights: [
+      "Aït Benhaddou UNESCO & Ouarzazate Studios",
+      "Todra Gorge & Dades Valley",
+      "Sunset camel trek to Erg Chebbi luxury camp",
+      "Khamlia Gnawa village & nomad families",
+      "Draa Valley scenic drive",
+      "Historic Telouet Kasbah",
+    ],
+  },
+  {
+    id: "marrakech-casablanca-6-days",
+    title: "Marrakech to Casablanca — 6 Days",
+    shortDescription:
+      "Six days from Marrakech to Casablanca, passing through Aït Benhaddou, the Sahara dunes, Fes medina, and the iconic Hassan II Mosque.",
+    fullDescription:
+      "A six-day itinerary that connects Marrakech with Casablanca via the most spectacular scenery in Morocco. The route takes you over the High Atlas to Aït Benhaddou and Ouarzazate, through the Dades Valley and Todra Gorge, across the Erg Chebbi dunes by camel, around the Merzouga desert with nomad families, north through the Ziz Valley and Atlas forests to Fes, and finishing with a visit to Casablanca and the magnificent Hassan II Mosque.",
+    price: 529,
+    duration: "6 Days",
+    groupSize: "2-8",
+    difficulty: "Moderate",
+    image: "/images/dest-casablanca.png",
+    gallery: [
+      "/images/dest-casablanca.png",
+      "/images/casablanca-atlantic-corniche.png",
+      "/images/gallery-fes-tannery.png",
+      "/images/gallery-sahara-camel-caravan.png",
+      "/images/ourika-valley-3.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Marrakech → Aït Benhaddou → Ouarzazate → Dades Valley",
+        description:
+          "Depart at 8:00 AM over the Atlas. Visit the UNESCO kasbah of Aït Benhaddou and Ouarzazate Studios. Continue through the Rose Valley to Boumaln Dades. Overnight.",
+      },
+      {
+        day: 2,
+        title: "Dades → Todra Gorge → Erg Chebbi Desert Camp",
+        description:
+          "Drive through Tinghir and the Todra Gorge. Reach Merzouga by afternoon. Camel trek to the desert camp for sunset, dinner, and Berber music.",
+      },
+      {
+        day: 3,
+        title: "Merzouga — Desert Day",
+        description:
+          "Sunrise at the camp, then explore the desert: nomads, Khamlia Gnawa village, the wild lake, and the dunes. Lunch in Merzouga. Overnight in hotel.",
+      },
+      {
+        day: 4,
+        title: "Merzouga → Ziz Valley → Ifrane → Fes",
+        description:
+          "Drive north via Erfoud, the panoramic Draa Valley, Midelt, Azrou cedar forest (Barbary macaques), and the clean Alpine town of Ifrane. Arrive in Fes.",
+      },
+      {
+        day: 5,
+        title: "Fes — Medina Tour",
+        description:
+          "Full guided tour of the Fes medina: Royal Palace, Mellah, tanneries, Al-Qarawiyyin University, and the artisan souks.",
+      },
+      {
+        day: 6,
+        title: "Fes → Casablanca — Hassan II Mosque",
+        description:
+          "Drive to Casablanca (4 h). Visit the spectacular Hassan II Mosque — the largest mosque in Africa, overlooking the Atlantic. Overnight in Casablanca.",
+      },
+    ],
+    highlights: [
+      "Aït Benhaddou UNESCO & Ouarzazate Studios",
+      "Todra Gorge & desert camp at Erg Chebbi",
+      "Khamlia Gnawa village & nomad families",
+      "Medieval Fes medina with local guide",
+      "Hassan II Mosque — largest in Africa",
+    ],
+  },
+  {
+    id: "morocco-week-7-days",
+    title: "One Week in Morocco — 7 Days",
+    shortDescription:
+      "The perfect week: High Atlas, Aït Benhaddou, Dades & Todra, Merzouga dunes, Dakar race road, Draa Valley, and Ouarzazate Studios.",
+    fullDescription:
+      "Seven days from Marrakech that include every highlight of southern Morocco and some hidden gems too. Cross the Atlas to Aït Benhaddou, sleep in the Dades Valley, spend a full day in the Merzouga desert with a camel sunset trek, follow the legendary Paris-Dakar race route through the remote Ouzina village near the Algerian border, drive the scenic Draa Valley through Zagora and Agdz, and finish with Ouarzazate Studios and the Telouet Kasbah before returning to Marrakech.",
+    price: 645,
+    duration: "7 Days",
+    groupSize: "2-8",
+    difficulty: "Moderate",
+    image: "/images/tour-desert-camp.png",
+    gallery: [
+      "/images/tour-desert-camp.png",
+      "/images/gallery-sahara-camels-rainbow.png",
+      "/images/sahara-camp-drums-1.png",
+      "/images/ourika-valley-4.png",
+      "/images/jemaa-el-fnaa-sunset.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Arrival in Marrakech",
+        description:
+          "Transfer from the airport to your riad/hotel. Explore Jemaa el-Fnaa Square in the evening.",
+      },
+      {
+        day: 2,
+        title: "Marrakech → Aït Benhaddou → Rose Valley → Dades Valley",
+        description:
+          "Early departure over the Tizi-N'Tichka pass. Visit Aït Benhaddou (UNESCO), continue through Rose Valley and Dades Gorges. Overnight.",
+      },
+      {
+        day: 3,
+        title: "Dades Valley → Todra Gorge → Merzouga",
+        description:
+          "Drive through Todra Valley, visit the 300 m canyon walls. Continue to Merzouga. Overnight in a hotel/riad near the dunes.",
+      },
+      {
+        day: 4,
+        title: "Merzouga — Full Desert Day & Camel Trek",
+        description:
+          "Morning 4×4 tour: Khamlia Gnawa village, nomad families, and wild oasis. Afternoon camel trek to the desert camp for sunset, Berber music and dinner.",
+      },
+      {
+        day: 5,
+        title: "Merzouga → Taouz → Dakar Road → Ouzina → Tafraoute Sidi Ali",
+        description:
+          "Follow the Paris-Dakar rally route through the remote desert. Visit the ancient Berber settlement of Ouzina near the Algerian border and Ramlia Village. Overnight in a Berber hotel in Tafraoute Sidi Ali.",
+      },
+      {
+        day: 6,
+        title: "Tafraoute → Zagora → Agdz → Tamnougalt → Ouarzazate",
+        description:
+          "Cross the Oumjrane desert towards Zagora. Stop at Agdz and the Tamnougalt Kasbah in the Draa Valley. Continue to Ouarzazate for the night.",
+      },
+      {
+        day: 7,
+        title: "Ouarzazate Studios → Telouet Kasbah → Marrakech",
+        description:
+          "Visit the Atlas Film Studios in Ouarzazate. Drive via the scenic Ounila Valley to the historic Telouet Kasbah. Cross the Tizi n'Tichka pass and arrive in Marrakech.",
+      },
+    ],
+    highlights: [
+      "Aït Benhaddou UNESCO kasbah",
+      "Todra Gorge & Dades Valley",
+      "Full desert day at Erg Chebbi with camel trek",
+      "Paris-Dakar race route through remote Ouzina",
+      "Draa Valley, Zagora & Tamnougalt Kasbah",
+      "Ouarzazate Studios & Telouet Kasbah",
+    ],
+  },
+  {
+    id: "marrakech-casablanca-8-days",
+    title: "Marrakech to Casablanca — 8 Days",
+    shortDescription:
+      "Eight days from Marrakech to Casablanca: the deep south, Fes medina, Chefchaouen, Tangier, Asilah, Rabat, and the Hassan II Mosque.",
+    fullDescription:
+      "A comprehensive eight-day journey that begins in Marrakech and travels the full length of Morocco to Casablanca. After two days in the southern desert — Aït Benhaddou, Erg Chebbi by camel, and a full Merzouga desert day — you drive north via the Ziz Valley and Middle Atlas forests to Fes. From Fes, the route continues through the Rif Mountains to Chefchaouen, then to Tangier, the artistic town of Asilah, Rabat (Hassan Tower, Kasbah), and finally Casablanca and the Hassan II Mosque.",
+    price: 490,
+    duration: "8 Days",
+    groupSize: "2-8",
+    difficulty: "Moderate",
+    image: "/images/dest-casablanca.png",
+    gallery: [
+      "/images/chefchaouen-alley-blue.png",
+      "/images/fes-architecture-3.png",
+      "/images/human-first-guest-guide-sahara-camels.png",
+      "/images/casablanca-ain-diab-sunset.png",
+      "/images/ourika-valley-5.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Marrakech → Aït Benhaddou → Ouarzazate → Dades Valley",
+        description:
+          "Depart at 8:00 AM, cross the High Atlas, visit Aït Benhaddou (UNESCO) and Ouarzazate. Continue to Boumaln Dades via Rose Valley. Overnight.",
+      },
+      {
+        day: 2,
+        title: "Dades → Todra Gorge → Erg Chebbi Desert Camp",
+        description:
+          "Morning through the Todra Gorge. Continue to Merzouga for a sunset camel trek to the Erg Chebbi desert camp. Dinner and Berber music under the stars.",
+      },
+      {
+        day: 3,
+        title: "Merzouga → Ziz Valley → Ifrane → Fes",
+        description:
+          "Sunrise at the camp. Drive north via Erfoud, Ziz Valley, Midelt, Azrou cedar forest, and Ifrane to Fes.",
+      },
+      {
+        day: 4,
+        title: "Fes → Rif Mountains → Chefchaouen",
+        description:
+          "After breakfast, drive through the Rif Mountains to the iconic Blue City of Chefchaouen. Free afternoon to explore the blue medina on foot.",
+      },
+      {
+        day: 5,
+        title: "Chefchaouen → Tetouan → Tangier",
+        description:
+          "Drive via Tetouan (the White Dove) through the Rif Mountains to Tangier — Morocco's gateway to Europe.",
+      },
+      {
+        day: 6,
+        title: "Tangier → Asilah",
+        description:
+          "Coastal drive to the whitewashed artistic town of Asilah, with its Atlantic ramparts and vibrant street art. Overnight.",
+      },
+      {
+        day: 7,
+        title: "Asilah → Rabat",
+        description:
+          "Drive to Rabat, Morocco's capital. Visit the Hassan Tower, the Kasbah of the Oudaïas, and the Mausoleum of Mohammed V.",
+      },
+      {
+        day: 8,
+        title: "Rabat → Casablanca — Hassan II Mosque",
+        description:
+          "Coastal drive to Casablanca. Tour the spectacular Hassan II Mosque, the largest in Africa, perched on the Atlantic. End of tour.",
+      },
+    ],
+    highlights: [
+      "Aït Benhaddou UNESCO & Erg Chebbi camel trek",
+      "Fes medina & Chefchaouen Blue City",
+      "Tangier — gateway to Europe",
+      "Asilah Atlantic ramparts & street art",
+      "Rabat Hassan Tower & Kasbah",
+      "Hassan II Mosque — largest mosque in Africa",
+    ],
+  },
+  {
+    id: "marrakech-casablanca-9-days",
+    title: "Marrakech to Casablanca — 9 Days",
+    shortDescription:
+      "Nine days across Morocco's greatest highlights: from the Sahara dunes and Merzouga to Fes, Chefchaouen, Volubilis, Meknes, Tangier, Rabat, and Casablanca.",
+    fullDescription:
+      "A comprehensive nine-day grand tour from Marrakech to Casablanca. The journey weaves through Aït Benhaddou, Ouarzazate, the Sahara dunes of Erg Chebbi, Fes with a full guided medina tour, the Roman ruins of Volubilis, the imperial Bab Mansour gate in Meknes, the blue streets of Chefchaouen, Tangier with Cap Spartel and the Caves of Hercules, the colorful town of Asilah, Rabat, and finally Casablanca and the Hassan II Mosque.",
+    price: 840,
+    duration: "9 Days",
+    groupSize: "2-8",
+    difficulty: "Moderate",
+    image: "/images/dest-casablanca.png",
+    gallery: [
+      "/images/chefchaouen-courtyard-blue.png",
+      "/images/gallery-fes-tannery.png",
+      "/images/casablanca-atlantic-corniche.png",
+      "/images/gallery-marrakech-jemaa.png",
+      "/images/about-hero-group-dades.jpg",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Arrival in Marrakech",
+        description: "Transfer from the airport to your riad. Evening at leisure in Jemaa el-Fnaa.",
+      },
+      {
+        day: 2,
+        title: "Marrakech → Telouet Kasbah → Aït Benhaddou → Ouarzazate",
+        description:
+          "Cross the High Atlas via Tizi n'Tichka, stop at the Glaoui Kasbah of Telouet, visit UNESCO Aït Benhaddou, and explore Ouarzazate Studios and Kasbah Taourirt.",
+      },
+      {
+        day: 3,
+        title: "Ouarzazate → Todra Gorge → Erg Chebbi Desert Camp",
+        description:
+          "Drive through the Skoura palm grove, Rose Valley, Dades Valley, and Todra Gorge. Reach Merzouga for a sunset camel trek to the desert camp.",
+      },
+      {
+        day: 4,
+        title: "Desert → Ziz Valley → Ifrane → Fes",
+        description:
+          "Sunrise in the Sahara. Drive north via Rissani souk, Ziz Valley, Midelt, Azrou cedar forest, and Ifrane to Fes.",
+      },
+      {
+        day: 5,
+        title: "Fes — Full Medina Tour",
+        description:
+          "Guided tour: Royal Palace, Jewish Quarter, Al-Qarawiyyin University, tanneries, and artisan souks. Free afternoon.",
+      },
+      {
+        day: 6,
+        title: "Fes → Meknes → Volubilis → Chefchaouen",
+        description:
+          "Visit Meknes (Bab Mansour, Moulay Ismail Mausoleum). Stop at the UNESCO Roman ruins of Volubilis. Continue to Chefchaouen.",
+      },
+      {
+        day: 7,
+        title: "Chefchaouen → Tetouan → Tangier",
+        description:
+          "Morning free in Chefchaouen. Drive via Tetouan to Tangier. Overnight.",
+      },
+      {
+        day: 8,
+        title: "Tangier → Cap Spartel → Asilah → Rabat → Casablanca",
+        description:
+          "Guided Tangier tour: Cap Spartel, Caves of Hercules, the Kasbah. Stop in Asilah. Visit Rabat's Hassan Tower. Arrive in Casablanca.",
+      },
+      {
+        day: 9,
+        title: "Casablanca → Hassan II Mosque → Marrakech (optional)",
+        description:
+          "Guided tour of the Hassan II Mosque, then transfer to Marrakech airport or drop-off in Casablanca.",
+      },
+    ],
+    highlights: [
+      "Telouet Kasbah & Aït Benhaddou UNESCO",
+      "Sunset camel trek at Erg Chebbi",
+      "Full guided day in medieval Fes",
+      "Volubilis Roman ruins & Meknes imperial city",
+      "Chefchaouen Blue Pearl & Tangier",
+      "Hassan II Mosque Casablanca",
+    ],
+  },
+  {
+    id: "marrakech-casablanca-10-days",
+    title: "Marrakech to Casablanca — 10 Days",
+    shortDescription:
+      "Ten days across Morocco from south to north: Sahara dunes, Fes medina, Chefchaouen, Tangier, Asilah, Rabat, and Casablanca.",
+    fullDescription:
+      "A ten-day comprehensive Morocco itinerary starting in Marrakech and ending in Casablanca. The tour covers all the essential stops: High Atlas, Aït Benhaddou, Ouarzazate, Dades and Rose Valley, Todra Gorge, Erg Chebbi dunes and desert camp, a full day with the Merzouga nomads, the Ziz Valley and Middle Atlas cedar forests, the imperial city of Fes, Chefchaouen, Tangier, the Atlantic town of Asilah, Rabat, and the magnificent Hassan II Mosque in Casablanca.",
+    price: 459,
+    duration: "10 Days",
+    groupSize: "2-8",
+    difficulty: "Moderate",
+    image: "/images/dest-casablanca.png",
+    gallery: [
+      "/images/chefchaouen-door-blue.png",
+      "/images/fes-architecture-4.png",
+      "/images/casablanca-habous-quarter.png",
+      "/images/gallery-marrakech-lanterns.png",
+      "/images/season-summer-oasis-canyon.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Marrakech → Aït Benhaddou → Ouarzazate",
+        description:
+          "Pick-up and drive over the Atlas to Aït Benhaddou (UNESCO) and Ouarzazate Studios. Overnight.",
+      },
+      {
+        day: 2,
+        title: "Ouarzazate → Rose Valley → Dades Valley",
+        description:
+          "Drive through Rose Valley and Kalaat Mgouna to Boumaln Dades. Overnight.",
+      },
+      {
+        day: 3,
+        title: "Dades → Todra Gorge → Erg Chebbi Desert Camp",
+        description:
+          "Visit Todra Gorge in Tinghir. Continue to Merzouga for a sunset camel trek and night in the desert camp.",
+      },
+      {
+        day: 4,
+        title: "Merzouga — Full Desert Day",
+        description:
+          "Visit nomad people, Khamlia Gnawa village, and the Hassilabied oasis. Overnight in a Merzouga hotel.",
+      },
+      {
+        day: 5,
+        title: "Merzouga → Ziz Valley → Midelt",
+        description:
+          "Drive via Errachidia and the Ziz Valley panorama to Midelt. Overnight.",
+      },
+      {
+        day: 6,
+        title: "Midelt → Azrou → Ifrane → Fes",
+        description:
+          "Stop at Azrou cedar forest (wild Barbary monkeys) and Ifrane. Arrive in Fes.",
+      },
+      {
+        day: 7,
+        title: "Fes → Chefchaouen",
+        description:
+          "Drive through the Rif Mountains to the iconic Blue City of Chefchaouen. Free evening to explore.",
+      },
+      {
+        day: 8,
+        title: "Chefchaouen → Asilah",
+        description:
+          "Scenic Rif Mountain drive to Asilah, the whitewashed Atlantic art town. Overnight.",
+      },
+      {
+        day: 9,
+        title: "Asilah → Rabat",
+        description:
+          "Coastal drive to Rabat. Visit the Hassan Tower, Kasbah of the Oudaïas, and Mausoleum of Mohammed V.",
+      },
+      {
+        day: 10,
+        title: "Rabat → Casablanca — Hassan II Mosque",
+        description:
+          "Drive to Casablanca via the coast. Guided visit of the Hassan II Mosque. End of tour.",
+      },
+    ],
+    highlights: [
+      "Aït Benhaddou UNESCO & Ouarzazate Studios",
+      "Todra Gorge, Rose Valley & Dades Valley",
+      "Camel trek & desert camp at Erg Chebbi",
+      "Full desert day with nomad families",
+      "Medieval Fes medina & Chefchaouen Blue City",
+      "Rabat & Hassan II Mosque Casablanca",
+    ],
+  },
+  {
+    id: "morocco-11-days",
+    title: "Morocco Grand Tour — 11 Days",
+    shortDescription:
+      "The ultimate 11-day loop from Marrakech: Casablanca, Rabat, Chefchaouen, Fes, Merzouga Sahara, Dades, Aït Benhaddou, and back to Marrakech.",
+    fullDescription:
+      "An eleven-day circular grand tour that starts and ends in Marrakech, taking in Morocco's greatest cities and landscapes in one flowing itinerary. Head first to Casablanca and the Hassan II Mosque, then up to Rabat, Chefchaouen, and Fes for a full guided medina day. Continue south through the Middle Atlas to the Merzouga desert, ride camels to the camp, explore the dunes with nomad families, then drive back through the Todra Gorge, Dades Valley, and Aït Benhaddou before returning to Marrakech.",
+    price: 529,
+    duration: "11 Days",
+    groupSize: "2-8",
+    difficulty: "Moderate",
+    image: "/images/tour-marrakech.png",
+    gallery: [
+      "/images/tour-marrakech.png",
+      "/images/chefchaouen-plaza-uta.png",
+      "/images/gallery-fes-arch.png",
+      "/images/casablanca-ain-diab-sunset.png",
+      "/images/gallery-marrakech-souk-rugs.png",
+      "/images/bahia-palace.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Arrival in Marrakech",
+        description: "Airport transfer. Evening at Jemaa el-Fnaa Square.",
+      },
+      {
+        day: 2,
+        title: "Marrakech → Casablanca → Rabat",
+        description:
+          "Drive to Casablanca and visit the Hassan II Mosque, then on to Rabat — Kasbah of the Oudaïas, Hassan Tower, Mausoleum of Mohammed V.",
+      },
+      {
+        day: 3,
+        title: "Rabat → Chefchaouen",
+        description:
+          "Drive to the Blue City of Chefchaouen. Orientation walk through the blue medina and viewpoint visit.",
+      },
+      {
+        day: 4,
+        title: "Chefchaouen → Fes",
+        description: "Drive to Fes. Arrive in the afternoon.",
+      },
+      {
+        day: 5,
+        title: "Fes — Medina Tour",
+        description:
+          "Full day guided tour with a local Fes guide: medina, Royal Palace, tanneries, Al-Qarawiyyin, souks.",
+      },
+      {
+        day: 6,
+        title: "Fes → Ifrane → Azrou → Merzouga",
+        description:
+          "Drive south through Ifrane, Azrou cedar forest (Barbary macaques), Midelt, and the Ziz Valley to Merzouga.",
+      },
+      {
+        day: 7,
+        title: "Merzouga — Gnawa Music & Camel Trek",
+        description:
+          "Visit Khamlia (Gnawa music), meet Berber nomads, then mount camels for the sunset trek to the desert camp. Dinner and traditional music.",
+      },
+      {
+        day: 8,
+        title: "Desert Camp → Rissani → Todra Gorge → Dades Valley",
+        description:
+          "Sunrise at the camp. Drive via Rissani souk and Tinghir to the Todra Gorge and Dades Valley. Overnight.",
+      },
+      {
+        day: 9,
+        title: "Dades → Aït Benhaddou → Marrakech",
+        description:
+          "Follow the Road of a Thousand Kasbahs to Ouarzazate and the UNESCO Aït Benhaddou. Cross the Tizi n'Tichka pass back to Marrakech.",
+      },
+      {
+        day: 10,
+        title: "Marrakech — City Tour",
+        description:
+          "Full guided day: Majorelle Garden, Bahia Palace, Saadian Tombs, Koutoubia Mosque, and the souks of the medina.",
+      },
+      {
+        day: 11,
+        title: "Marrakech — Departure",
+        description: "Free morning. Transfer to Marrakech airport.",
+      },
+    ],
+    highlights: [
+      "Hassan II Mosque & Rabat imperial sites",
+      "Chefchaouen Blue Pearl",
+      "Full guided day in medieval Fes",
+      "Barbary macaques in Azrou cedar forest",
+      "Sunset camel trek at Erg Chebbi",
+      "Aït Benhaddou UNESCO & Marrakech city tour",
+    ],
+  },
+  {
+    id: "marrakech-merzouga-12-days",
+    title: "Morocco Grand Tour — 12 Days",
+    shortDescription:
+      "Twelve days exploring all of Morocco: Marrakech, High Atlas, Sahara dunes, Fes medina, Meknes, Volubilis, Chefchaouen, Rabat, Casablanca, and Essaouira.",
+    fullDescription:
+      "A twelve-day circular grand tour from Marrakech that covers the breadth and depth of Morocco. Start with a full Marrakech city tour, then head south over the Atlas to Aït Benhaddou and the Dades Valley, cross the Todra Gorge to the Erg Chebbi dunes for a desert camp night, spend a full day with the Merzouga nomads, drive north via the Ziz Valley and cedar forests to Fes, explore the imperial city of Meknes and the Roman ruins of Volubilis, sleep in Chefchaouen, visit Rabat, see the Hassan II Mosque in Casablanca, and finish with the Atlantic charm of Essaouira.",
+    price: 590,
+    duration: "12 Days",
+    groupSize: "2-8",
+    difficulty: "Moderate",
+    image: "/images/tour-marrakech.png",
+    gallery: [
+      "/images/jemaa-el-fnaa-sunset.png",
+      "/images/chefchaouen-view-1.png",
+      "/images/fes-tannery-cityscape.png",
+      "/images/essaouira-fishing-port.png",
+      "/images/casablanca-atlantic-corniche.png",
+      "/images/koutoubia-mosque.png",
+      "/images/majorelle-garden.png",
+    ],
+    program: [
+      {
+        day: 1,
+        title: "Arrival in Marrakech",
+        description: "Airport transfer to your riad. Evening at Jemaa el-Fnaa.",
+      },
+      {
+        day: 2,
+        title: "Marrakech — City Tour",
+        description:
+          "Guided visit: Koutoubia minaret, Saadian Tombs, Bahia Palace, Majorelle Gardens, and the medina souks.",
+      },
+      {
+        day: 3,
+        title: "Marrakech → Aït Benhaddou → Ouarzazate → Dades Valley",
+        description:
+          "Cross the High Atlas via Tizi-Ntichka. Visit Aït Benhaddou (UNESCO) and Ouarzazate. Continue to Dades Valley for the night.",
+      },
+      {
+        day: 4,
+        title: "Dades → Todra Gorge → Erg Chebbi Desert Camp",
+        description:
+          "Drive through the Todra Gorge. Reach Merzouga for a sunset camel trek to the desert camp. Dinner and Berber music.",
+      },
+      {
+        day: 5,
+        title: "Merzouga — Full Desert Day",
+        description:
+          "Sunrise at the camp. Visit nomads, Khamlia village, and the wild oasis. Overnight in Merzouga hotel.",
+      },
+      {
+        day: 6,
+        title: "Merzouga → Ziz Valley → Ifrane → Fes",
+        description:
+          "Drive north via Erfoud, the Ziz Valley, Midelt, and Azrou cedar forest to Fes.",
+      },
+      {
+        day: 7,
+        title: "Fes — Full Medina Tour",
+        description:
+          "Guided tour: Royal Palace, tanneries, Al-Qarawiyyin, souks, and Jewish Quarter.",
+      },
+      {
+        day: 8,
+        title: "Fes → Meknes → Volubilis → Chefchaouen",
+        description:
+          "Visit Meknes (Bab Mansour, Moulay Ismail Mausoleum) and the UNESCO Roman ruins of Volubilis. Overnight in Chefchaouen.",
+      },
+      {
+        day: 9,
+        title: "Chefchaouen — Free Day",
+        description:
+          "Full day to explore the blue medina, hike to the Spanish Mosque, and visit artisan workshops.",
+      },
+      {
+        day: 10,
+        title: "Chefchaouen → Rabat",
+        description:
+          "Drive to Rabat. Visit the Hassan Tower, Kasbah of the Oudaïas, and Mausoleum of Mohammed V.",
+      },
+      {
+        day: 11,
+        title: "Rabat → Casablanca → Essaouira",
+        description:
+          "Visit the Hassan II Mosque in Casablanca, then drive to Essaouira's Atlantic medina for the night.",
+      },
+      {
+        day: 12,
+        title: "Essaouira → Marrakech — Departure",
+        description:
+          "Morning in Essaouira (fishing port, ramparts). Return to Marrakech for airport transfer.",
+      },
+    ],
+    highlights: [
+      "Full Marrakech city tour",
+      "Aït Benhaddou UNESCO & Ouarzazate",
+      "Sunset camel trek at Erg Chebbi & desert camp",
+      "Full Fes medina with local guide",
+      "Volubilis Roman ruins & Meknes",
+      "Chefchaouen Blue Pearl & Hassan II Mosque",
+      "Essaouira Atlantic coast",
     ],
   },
 ];
